@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import propert.org.mum.realEstate.service.PropertyService;
 import property.org.mum.realEstate.DAO.PropertyDAO;
 import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
+import property.org.mum.realEstate.service.PropertyService;
 
 @Service
 public class PropertyServiceImpl implements PropertyService {

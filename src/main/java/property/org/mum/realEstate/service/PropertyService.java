@@ -1,4 +1,4 @@
-package propert.org.mum.realEstate.service;
+package property.org.mum.realEstate.service;
 
 import java.util.List;
 
