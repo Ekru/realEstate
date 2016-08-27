@@ -146,7 +146,12 @@ xmlns="http://maven.apache.org/POM/4.0.0"
     <artifactId>hibernate-commons-annotations</artifactId>
     <version>3.3.0.ga</version>
 </dependency>
-		     
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>4.3.2.RELEASE</version>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>
