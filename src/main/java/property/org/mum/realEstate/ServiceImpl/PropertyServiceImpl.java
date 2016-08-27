@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import property.org.mum.realEstate.DAO.PropertyDAO;
+import property.org.mum.realEstate.Service.PropertyService;
 import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
-import property.org.mum.realEstate.service.PropertyService;
 
 @Service
 public class PropertyServiceImpl implements PropertyService {
