@@ -2,9 +2,11 @@ package owner.org.mum.realEstate.DAOImpl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import owner.org.mum.realEstate.DAO.OwnerDAO;
 import owner.org.mum.realEstate.domain.Owner;
-
+@Repository
 public class OwnerDAOImpl implements OwnerDAO{
 
 	@Override
