@@ -13,8 +13,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Real Space a Real Estates and Builders Category Flat Bootstrap Responsive Website Template | Home :: w3layouts </title>
 <!---css--->
-<link href="<spring:url value="/src/main/resources/css/bootstrap.css" />" rel='stylesheet' type='text/css' />
-<link href="<spring:url value="/src/main/resources/css/style.css" />" rel='stylesheet' type='text/css' />
+<link href="<spring:url value='/resources/css/bootstrap.css' />" rel='stylesheet' type='text/css' />
+<link href="<spring:url value='/resources/css/style.css' /> " rel='stylesheet' type='text/css' />
 <!---css--->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -22,15 +22,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!---js--->
-<script src="<spring:url value="/src/main/resources/js/jquery-1.11.1.min.js" />"></script>
-<script src="<spring:url value="/src/main/resources/js/bootstrap.js" />"></script>
+<script src="<spring:url value='/resources/js/jquery-1.11.1.min.js' />"></script>
+<script src="<spring:url value="/resources/js/bootstrap.js" />"></script>
 <!---js--->
 <!---fonts-->
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 <!---fonts-->
-<script src="<spring:url value="/src/main/resources/js/responsiveslides.min.js" />"></script>
+<script src="<spring:url value="/resources/js/responsiveslides.min.js" />"></script>
 	 <script>
 		$(function () {
 		  $("#slider").responsiveSlides({
@@ -42,8 +42,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  });
 		});
 	</script>
-<link href="<spring:url value="/src/main/resources/css/owl.carousel.css" />" rel="stylesheet">
-<script src="<spring:url value="/src/main/resources/js/owl.carousel.js" />"></script>
+<link href="<spring:url value="/resources/css/owl.carousel.css" />" rel="stylesheet">
+<script src="<spring:url value="/resources/js/owl.carousel.js" />"></script>
 	<script>
 		$(document).ready(function() {
 		$("#owl-demo").owlCarousel({
