@@ -1,8 +1,13 @@
 package client.org.mum.realEstate.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import property.org.mum.realEstate.domain.Address;
 @Entity
 public class Client {
 
@@ -12,6 +17,10 @@ public class Client {
 		private String lastName;
 		private String email; 
 		private String phone; 
+		@ManyToOne(cascade = CascadeType.MERGE)
+		@JoinColumn(name = "id")
+		private Address addressNo;
+		
 		
 		public Client(){}
 		
