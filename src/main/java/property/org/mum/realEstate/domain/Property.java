@@ -15,6 +15,32 @@ public class Property {
 	@Id
 	@GeneratedValue
 	private int id;
+	private double price;
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
+
 	private String description;
 	@OneToOne
 	private Address address;

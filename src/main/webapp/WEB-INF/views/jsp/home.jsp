@@ -34,79 +34,35 @@
 	<div class="content">
 		<div class="place-section">
 			<div class="container">
-				<h2>find your place</h2>
+				<h2>find your Property</h2>
+					<form action="<spring:url value='/home/search' /> " method="post">
 				<div class="place-grids">
 					<div class="col-md-3 place-grid">
-						<h5>all location</h5>
+						<h5>All categories</h5>
 						<select class="sel">
 						<option value="">All Locations</option>
-						<option value="">New Jersey</option>
-						<option value="">New York</option>
-						<option value="">Australia</option>
-						<option value="">Canada</option>
-						<option value="">India</option>
+						<c:forEach items="${categories}" var="category">
+						<option value="${category}">${category.getName}</option>
+                         </c:forEach>
 						</select>
 					</div>
 					<div class="col-md-3 place-grid">
 					<h5>all sub location</h5>
-					<select class="sel">
-						<option value="">All Locations</option>
-						<option value="">New Jersey</option>
-						<option value="">New York</option>
-						<option value="">Australia</option>
-						<option value="">Canada</option>
-						<option value="">India</option>
-						</select>
+					<div class="form-group">
+  <label for="name">Name:</label>
+  <input type="text" name="name" class="form-control" id="name">
+</div>
 					</div>
-					<div class="col-md-3 place-grid">
-					<h5>Property Status</h5>
-					<select class="sel">
-						<option value="">All status</option>
-						<option value="">none</option>
-						<option value="">open house</option>
-						<option value="">rent</option>
-						<option value="">sale</option>
-						</select>
-					</div>
-					<div class="col-md-3 place-grid">
-					<h5>Property Type</h5>
-					<select class="sel">
-						<option value="">All Type</option>
-						<option value="">Commercial</option>
-						<option value="">- Office</option>
-						<option value="">- Buy</option>
-						<option value="">Residential</option>
-						<option value="">-Apartment</option>
-						</select>
-					</div>
+					
+					
 					<div class="clearfix"></div>
 				</div>
 				<div class="place-grids">
-					<div class="col-md-2 place-grid1">
-						<h5>Min Beds</h5>
-						<select class="sel">
-						<option value="">any</option>
-						<option value="">1</option>
-						<option value="">2</option>
-						<option value="">3</option>
-						<option value="">4</option>
-						<option value="">5</option>
-						</select>
-					</div>
-					<div class="col-md-2 place-grid1">
-						<h5>Min Baths</h5>
-						<select class="sel">
-							<option value="">any</option>
-							<option value="">1</option>
-							<option value="">2</option>
-							<option value="">3</option>
-							<option value="">4</option>
-							<option value="">5</option>
-						</select>
-					</div>
+					
+					
 					<div class="col-md-2 place-grid1">
 						<h5>Min Price</h5>
-						<select class="sel">
+						<select class="sel" name="minPrice">
 							<option value="">any</option>
 							<option value="">$500</option>
 							<option value="">$1000</option>
@@ -120,24 +76,25 @@
 					</div>
 					<div class="col-md-2 place-grid1">
 						<h5>Max Price</h5>
-						<select class="sel">
+						<select class="sel"  name="maxPrice">
 							<option value="">any</option>
-							<option value="">$1000</option>
-							<option value="">$2000</option>
-							<option value="">$3000</option>
-							<option value="">$4000</option>
-							<option value="">$5000</option>
-							<option value="">$75000</option>
-							<option value="">$10000</option>
+							<option value="1000">$1000</option>
+							<option value="2000">$2000</option>
+							<option value="3000">$3000</option>
+							<option value="4000">$4000</option>
+							<option value="5000">$5000</option>
+							<option value="75000">$75000</option>
+							<option value="10000">$10000</option>
 						</select>
 					</div>
 					<div class="col-md-4 search">
-					<form action="forrent.html">
+				
 						<input type="submit" value="Search">
-					</form>
+					
 					</div>
 					<div class="clearfix"></div>
 				</div>
+				</form>
 			</div>
 		</div>
 			<div class="friend-agent">

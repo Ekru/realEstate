@@ -17,4 +17,5 @@ public interface PropertyService {
 	void deleteCategory(Category category);
 
 	void addPropertyToSaved(Property property);
+	
 }
