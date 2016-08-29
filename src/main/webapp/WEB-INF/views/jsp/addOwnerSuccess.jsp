@@ -4,7 +4,7 @@
 <!---banner--->
 		<div class="banner-section">
 			<div class="container">
-				<h2>Agents Profile</h2>
+				<h2>Owner Profile</h2>
 			</div>
 		</div>
 		<!---banner--->
@@ -30,16 +30,16 @@
 					<div class="col-md-9 agentprofile-left">
 						<div class="agent-profile">
 							<div class="profile-left">
-							<h4>{owner.firstName +" "+ owner.lastName}</h4>
-							<p>Property Owner |<a href="mailto:{owner.email}">{owner.email}</a></p>
+							<h4>${owner.firstName}  ${ owner.lastName}</h4>
+							<p>Property Owner |<a href="mailto:${owner.email}">${owner.email}</a></p>
 							<img src="images/a4.jpg" class="img-responsive" alt="/">
 							</div>
 							<div class="profile-right">
 								<h5>My details</h5>
 								<ul>									
-									<li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i> Mobile : {owner.telNumber}</li>
-									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i> <a href="mailto:{owner.email}">{owner.email}</a></li>
-									<li><i class="glyphicon glyphicon-address" aria-hidden="true"></i> Address : {owner.address.street+", "+owner.address.city+" "+owner.address.state+ " "+owner.address.zip}</li>									
+									<li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i> Mobile : ${owner.telNumber}</li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i> <a href="mailto:{owner.email}">${owner.email}</a></li>
+									<li><i class="glyphicon glyphicon-home" aria-hidden="true"></i> Address : ${owner.address.street}, ${owner.address.city} <br/>${owner.address.state} ${owner.address.zip}</li>									
 								</ul>
 							</div>
 							<div class="clearfix"></div>
