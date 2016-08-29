@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+ <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+        
 		<!---banner--->
 		<div class="slider">
 			<div class="callbacks_container">
@@ -143,17 +144,17 @@
 				<div class="container">
 					<div class="friend-grids">
 						<div class="col-md-4 friend-grid">
-							<img src="images/p.png">
+							<img src="<spring:url value='/resources/images/p.png' /> ">
 							<h4>Search From Anywhere</h4>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.</p>
 						</div>
 						<div class="col-md-4 friend-grid">
-							<img src="images/p1.png">
+							<img src="<spring:url value='/resources/images/p1.png' /> ">
 							<h4>Friendly Agents</h4>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.</p>
 						</div>
 						<div class="col-md-4 friend-grid">
-							<img src="images/p2.png">
+							<img src="<spring:url value='/resources/images/p2.png' /> ">
 							<h4>Buy or Rent</h4>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.</p>
 						</div>
@@ -170,7 +171,7 @@
 								<h4><a href="single.html">Villa In Hialeah, Dade County</a></h4>
 								<div class="offer1">
 									<div class="offer-left">
-										<a href="single.html" class="mask"><img src="images/p3.jpg" class="img-responsive zoom-img" alt=""/></a>
+										<a href="single.html" class="mask"><img src="<spring:url value='/resources/iimages/p3.jpg' /> " class="img-responsive zoom-img" alt=""/></a>
 									</div>
 									<div class="offer-right">
 										<h5><label>$</label> 7,500 Per Month - <span>Single Family Home</span></h5>
@@ -205,7 +206,7 @@
 								<h4><a href="single.html">3895 NW 107th Ave</a></h4>
 								<div class="offer1">
 									<div class="offer-left">
-										<a href="single.html" class="mask"><img src="images/p5.jpg" class="img-responsive zoom-img" alt=""/></a>
+										<a href="single.html" class="mask"><img src="<spring:url value='/resources/images/p5.jpg'/>" class="img-responsive zoom-img" alt=""/></a>
 									</div>
 									<div class="offer-right">
 										<h5><label>$</label> 5,200 Per Month - <span>Office</span></h5>
@@ -221,7 +222,7 @@
 									<h4><a href="single.html">1400 Anastasia Avenue, Coral</a></h4>
 									<div class="offer1">
 										<div class="offer-left">
-											<a href="single.html" class="mask"><img src="images/p6.jpg" class="img-responsive zoom-img" alt=""/></a>
+											<a href="single.html" class="mask"><img src="<spring:url value='/resources/images/p6.jpg'/>" class="img-responsive zoom-img" alt=""/></a>
 									</div>
 										<div class="offer-right">
 											<h5><label>$</label> 525,000 - <span>Villa</span></h5>
@@ -240,7 +241,7 @@
 								<h4><a href="#">12 Apartments Of Type A</a></h4>
 								<div class="offer1">
 									<div class="offer-left">
-										<a href="single.html" class="mask"><img src="images/p7.jpg" class="img-responsive zoom-img" alt=""/></a>
+										<a href="single.html" class="mask"><img src="<spring:url value='/resources/images/p7.jpg'/>" class="img-responsive zoom-img" alt=""/></a>
 									</div>
 									<div class="offer-right">
 										<h5><label>$</label> 3,200 Per Month - <span>Apartment</span></h5>
@@ -256,7 +257,7 @@
 									<h4><a href="single.html">20 Apartments Of Type B</a></h4>
 									<div class="offer1">
 										<div class="offer-left">
-											<a href="single.html" class="mask"><img src="images/p8.jpg" class="img-responsive zoom-img" alt=""/></a>
+											<a href="single.html" class="mask"><img src="<spring:url value='/resources/images/p8.jpg'/>" class="img-responsive zoom-img" alt=""/></a>
 									</div>
 										<div class="offer-right">
 											<h5><label>$</label> 4,200 Per Month - <span>Apartment</span></h5>
@@ -277,25 +278,25 @@
 						<h3>Featured Properties</h3>
 						<div class="feature-grids">
 							<div class="col-md-3 feature-grid">
-								<img src="images/f1.jpg" class="img-responsive" alt="/">
+								<img src="<spring:url value='/resources/images/f1.jpg'/>" class="img-responsive" alt="/">
 								<h5>Villa in Hialeah, Dade</h5>
 								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
 								<span>$2,500 Per Month</span>
 							</div>
 							<div class="col-md-3 feature-grid">
-								<img src="images/f2.jpg" class="img-responsive" alt="/">
+								<img src="<spring:url value='/resources/images/f2.jpg'/>" class="img-responsive" alt="/">
 								<h5>401 Biscayne Boulevard</h5>
 								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
 								<span>$7,500 Per Month</span>
 							</div>
 							<div class="col-md-3 feature-grid">
-								<img src="images/f3.jpg" class="img-responsive" alt="/">
+								<img src="<spring:url value='/resources/images/f3.jpg'/>" class="img-responsive" alt="/">
 								<h5>154 Southwest  Terra</h5>
 								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
 								<span>$9,500 Per Month</span>
 							</div>
 							<div class="col-md-3 feature-grid">
-								<img src="images/f4.jpg" class="img-responsive" alt="/">
+								<img src="<spring:url value='/resources/images/f4.jpg'/>" class="img-responsive" alt="/">
 								<h5>Florida 5, Pinecrest, FL</h5>
 								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
 								<span>$5,500 Per Month</span>
@@ -354,7 +355,7 @@
 							<div id="owl-demo" class="owl-carousel">
 								<div class="item">
 									<div class="col-md-2 testmonial-img">
-										<img src="images/t1.png" class="img-responsive" alt=""/>
+										<img src="<spring:url value='/resources/images/t1.png'/>" class="img-responsive" alt=""/>
 									</div>
 									<div class="col-md-10 testmonial-text">
 										<p>Lorem ipsum dolor sit amet, offendit volutpat sea ex, at omnium scripta pro, at omnium scripta pro, ei mea oratio malorum forensibus. ei mea oratio malorum forensibus. Sed ei omnes laoreet posidonium ei mea oratio malorum forensibus.</p>
@@ -364,7 +365,7 @@
 								</div>
 								<div class="item">
 									<div class="col-md-2 testmonial-img">
-										<img src="images/t2.png" class="img-responsive" alt=""/>
+										<img src="<spring:url value='/resources/images/t2.png' /> " class="img-responsive" alt=""/>
 									</div>
 									<div class="col-md-10 testmonial-text">
 										<p>Lorem ipsum dolor sit amet, offendit volutpat sea ex, at omnium scripta pro, at omnium scripta pro, ei mea oratio malorum forensibus. ei mea oratio malorum forensibus. Sed ei omnes laoreet posidonium ei mea oratio malorum forensibus.</p>
@@ -374,7 +375,7 @@
 								</div>
 								<div class="item">
 									<div class="col-md-2 testmonial-img">
-										<img src="images/t3.png" class="img-responsive" alt=""/>
+										<img src="<spring:url value='/resources/images/t3.png' /> " class="img-responsive" alt=""/>
 									</div>
 									<div class="col-md-10 testmonial-text">
 										<p>Lorem ipsum dolor sit amet, offendit volutpat sea ex, at omnium scripta pro, at omnium scripta pro, ei mea oratio malorum forensibus. ei mea oratio malorum forensibus. Sed ei omnes laoreet posidonium ei mea oratio malorum forensibus.</p>

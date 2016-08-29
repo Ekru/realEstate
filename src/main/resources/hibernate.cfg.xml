@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+   <session-factory>
+   <property name="hibernate.dialect">
+      org.hibernate.dialect.MySQLDialect
+   </property>
+   <property name="hibernate.connection.driver_class">
+      com.mysql.jdbc.Driver
+   </property>
+
+   <!-- Assume students is the database name -->
+   <property name="hibernate.connection.url">
+      jdbc:mysql://localhost/realestatedb
+   </property>
+   <property name="hibernate.connection.username">
+      root
+   </property>
+   <property name="hibernate.connection.password">
+      root
+   </property>
+   <!-- DB Schema -->
+   <propety name = "hibernate.hbm2ddl.auto"> create</propety>
+   
+   <!-- Print SQL on the console -->
+   <property name="hibernate.show_sql">
+   
+   <!-- List classes that will be mapped to tables -->
+   <mapping class ="owner.org.mum.realEstate.Owner"/>
+   <mapping class="property.org.mum.realEstate.Property"/>
+   <mapping class="property.org.mum.realEstate.SavedProperty"/>
+   <mapping class="property.org.mum.realEstate.Category"/>
+   <mapping class="client.org.mum.realEstate.Client"/>
+   <mapping class="client.org.mum.realEstate.Lease"/>
+
+</session-factory>
+</hibernate-configuration>
