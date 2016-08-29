@@ -10,38 +10,58 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import property.org.mum.realEstate.domain.Address;
 import property.org.mum.realEstate.domain.Property;
 
 @Entity
 public class Lease {
 	@Id
 	@GeneratedValue
-	private int leaseId;
+	private long leaseId;
 
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "clientNo")
 	private Client clientNo;
-
+	
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "propertyNo")
-	private Property id;
+	@JoinColumn(name = "id")
+	private Address addressNo;
+	
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "id")
+	private Property propertyNo;
+
+	
+	private double income;
 	private Date leaseDate;
-	private boolean leaseStatus;
+	private LeaseStatus leaseStatus;
 
 	public Lease() {
+	}
+	
+	public double getIncome() {
+		return income;
+	}
+
+	public void setIncome(double income) {
+		this.income = income;
 	}
 
 	
 
-	public int getLeaseId() {
+	public long getLeaseId() {
 		return leaseId;
 	}
 
-	public boolean isLeaseStatus() {
+	
+
+
+
+	public LeaseStatus getLeaseStatus() {
 		return leaseStatus;
 	}
 
-	public void setLeaseStatus(boolean leaseStatus) {
+	public void setLeaseStatus(LeaseStatus leaseStatus) {
 		this.leaseStatus = leaseStatus;
 	}
 
@@ -58,11 +78,19 @@ public class Lease {
 	}
 
 	public Property getPropertyNo() {
-		return id;
+		return propertyNo;
 	}
 
 	public void setPropertyNo(Property propertyNo) {
-		this.id = propertyNo;
+		this.propertyNo = propertyNo;
+	}
+
+	public Address getAddressNo() {
+		return addressNo;
+	}
+
+	public void setAddressNo(Address addressNo) {
+		this.addressNo = addressNo;
 	}
 
 	public Date getLeaseDate() {
