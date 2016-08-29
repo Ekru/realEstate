@@ -206,7 +206,7 @@
 								<h4><a href="single.html">3895 NW 107th Ave</a></h4>
 								<div class="offer1">
 									<div class="offer-left">
-										<a href="single.html" class="mask"><img src="<spring:url value='/resources/images/p5.jpg'/>" class="img-responsive zoom-img" alt=""/></a>
+										<a href="single.html" class="mask"><img src="<spring:url value='/resources/images/p5.jpg' /> " class="img-responsive zoom-img" alt=""/></a>
 									</div>
 									<div class="offer-right">
 										<h5><label>$</label> 5,200 Per Month - <span>Office</span></h5>
