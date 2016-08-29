@@ -54,46 +54,4 @@ public class OwnerServiceImpl implements OwnerService {
 		return ownerDAO.getOwners();
 	}
 
-	@Override
-	public void addNewProperty(Property property) {
-		// TODO Auto-generated method stub
-		propertyService.addNewProperty(property);
 	}
-
-	@Override
-	public void deletePropertyByCategory(Category category) {
-		// TODO Auto-generated method stub
-		propertyService.deleteCategory(category);
-	}
-
-	@Override
-	public void editProperty(int id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Property getPropertyById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Property> getPropertyByCatagory(Category category) {
-		// TODO Auto-generated method stub
-		return propertyService.getProperitiesByCategory(category);
-	}
-
-	@Override
-	public List<Property> getProperties() {
-		// TODO Auto-generated method stub
-		return propertyService.getAllProperies() ;
-	}
-
-	@Override
-	public List<Property> getLeasedProperties() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-}

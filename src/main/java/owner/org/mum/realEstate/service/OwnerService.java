@@ -16,7 +16,7 @@ public interface OwnerService {
 	 Owner getOwnerByName(String name);
 	 List<Owner> getOwners();
 	
-     void addNewProperty(Property property);
+     /*void addNewProperty(Property property);
      void deletePropertyByCategory(Category category);
 	 void editProperty(int id);
 	 Property getPropertyById(int id);
@@ -24,7 +24,7 @@ public interface OwnerService {
 	 List<Property> getProperties();
 	
 	//List<Lease> getApplications();
-	 List<Property> getLeasedProperties();
+	 List<Property> getLeasedProperties();*/
 	
 	
 }

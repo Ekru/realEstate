@@ -18,9 +18,10 @@ public class Owner {
 	private int id;
 	private String firstName;
 	private String lastName;
+	private String telNumber;
 	@OneToOne
 	private Address address;
-	private String telNumber;
+	
 	@OneToMany
 	private List<Property> properties;
 	
