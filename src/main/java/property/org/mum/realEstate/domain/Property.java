@@ -1,5 +1,6 @@
 package property.org.mum.realEstate.domain;
 
+import java.awt.Image;
 import java.util.List;
 
 import javax.persistence.Entity;

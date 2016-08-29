@@ -1,4 +1,4 @@
-package client.org.mum.realEstate.controller;
+/*package client.org.mum.realEstate.controller;
 
 
 
@@ -16,20 +16,20 @@ import property.org.mum.realEstate.Service.CategoryService;
 import property.org.mum.realEstate.Service.PropertyService;
 import property.org.mum.realEstate.domain.Category;
 
-/**
+*//**
  * Handles requests for the application home page.
- */
+ *//*
 @Controller
 public class HomeController {
 	@Autowired
-	private PropertyService pService;
+//	private PropertyService pService;
 	@Autowired
 	private CategoryService cService;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
+	*//**
 	 * Simply selects the home view to render by returning its name.
-	 */
+	 *//*
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		List<Category> categories=cService.getAllCategories();
@@ -40,3 +40,4 @@ public class HomeController {
 	}
 	
 }
+*/

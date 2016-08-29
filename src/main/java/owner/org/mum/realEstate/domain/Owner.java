@@ -17,12 +17,13 @@ public class Owner {
 	@GeneratedValue
 	private int id;
 	private String firstName;
-	private String lastName;
+	private String lastName;	
 	private String telNumber;
+	private String email;
 	@OneToOne
 	private Address address;
 	
-	@OneToMany
+	@OneToMany(mappedBy="property")
 	private List<Property> properties;
 	
 	public Owner(){
@@ -57,6 +58,13 @@ public class Owner {
 	}
 	public void setProperties(List<Property> properties) {
 		this.properties = properties;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	
