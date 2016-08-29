@@ -10,6 +10,8 @@ public interface PropertyService {
 
 	List<Property> getProperitiesByCategory(Category category);
 
+	Property getPropertyById(int id);
+
 	void addNewProperty(Property property);
 
 	void deleteCategory(Category category);

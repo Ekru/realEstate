@@ -1,5 +1,7 @@
 package property.org.mum.realEstate.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,6 +21,8 @@ public class Property {
 	@ManyToOne
 	@JoinColumn(name = "category")
 	private Category category;
+	@OneToMany
+	private List<Image> images;
 
 	public Category getCategory() {
 		return category;
