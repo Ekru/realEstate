@@ -25,8 +25,8 @@ public class OwnerController {
 
 	@Autowired
 	private PropertyService propertyService;
-	@Autowired
-	private ClientService clientService;
+	//@Autowired
+	//private ClientService clientService;
 	@Autowired
 	private OwnerService ownerService;
 	
@@ -38,7 +38,7 @@ public class OwnerController {
 		model.addAttribute("pageToRender", "addOwner.jsp");
 		return "template";
 	}
-	@RequestMapping(value="/addOwner",method=RequestMethod.POST)
+	@RequestMapping(value="/ownerProfile",method=RequestMethod.POST)
 	public String submitOwner(@ModelAttribute("owner") Owner owner,BindingResult result,Model model) {
 		
 		if(result.hasErrors()){
@@ -47,7 +47,7 @@ public class OwnerController {
 		}
 		ownerService.addNewOwner(owner);
 		//model.addAttribute("msg", "Owner added successfully!");
-		model.addAttribute("pageToRender", "addOwnerSuccess.jsp");
+		model.addAttribute("pageToRender", "ownerProfile.jsp");
 		return "template";
 	}
 	@RequestMapping(value="/owners/{id}/edit")
@@ -150,8 +150,8 @@ public class OwnerController {
 	@RequestMapping(value="/clients/{id}")
 	public String getClient(@PathVariable int id,Model model){
 		
-		Client client =clientService.getClient(id);
-		model.addAttribute("client", client);
+		//Client client =clientService.getClient(id);
+		//model.addAttribute("client", client);
 		model.addAttribute("pageToRender", "clients.jsp");
 		return "template";
 		
@@ -160,8 +160,8 @@ public class OwnerController {
 	@RequestMapping(value = "/clients")
 	public String getAllClients(Model model) {
 
-		List<Client> clients = clientService.getAllClient();
-		model.addAttribute("clients", clients);
+		//List<Client> clients = clientService.getAllClient();
+		//model.addAttribute("clients", clients);
 		model.addAttribute("pageToRender", "clients.jsp");
 		return "template";
 

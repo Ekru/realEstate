@@ -43,4 +43,9 @@ public class PropertyServiceImpl implements PropertyService {
 
 	}
 
+	@Override
+	public Property getPropertyById(int id) {
+		return propertyDAO.getPropertyById(id);
+	}
+
 }

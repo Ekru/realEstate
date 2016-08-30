@@ -15,8 +15,7 @@ import property.org.mum.realEstate.domain.Property;
 public class OwnerServiceImpl implements OwnerService {
 	@Autowired
 	private OwnerDAO ownerDAO;
-	@Autowired
-	private PropertyService propertyService;
+	
 	@Override
 	public void addNewOwner(Owner owner) {
 		// TODO Auto-generated method stub
