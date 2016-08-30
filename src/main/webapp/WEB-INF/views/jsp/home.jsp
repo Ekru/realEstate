@@ -234,12 +234,14 @@
 					<div class="container">
 						<h3>Featured Properties</h3>
 						<div class="feature-grids">
+						<c:forEach items="${featuredProperties}" var="property">
 							<div class="col-md-3 feature-grid">
 								<img src="<spring:url value='/resources/images/f1.jpg'/>" class="img-responsive" alt="/">
-								<h5>Villa in Hialeah, Dade</h5>
+								<h5>${property.getName()}</h5>
 								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
 								<span>$2,500 Per Month</span>
 							</div>
+							</c:forEach>
 							<div class="col-md-3 feature-grid">
 								<img src="<spring:url value='/resources/images/f2.jpg'/>" class="img-responsive" alt="/">
 								<h5>401 Biscayne Boulevard</h5>

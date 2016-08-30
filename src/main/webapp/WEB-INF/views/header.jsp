@@ -31,47 +31,34 @@
 								<span class="icon-bar"></span>
 							</button>				  
 							<div class="navbar-brand">
-								<h1><a href="index.html"><span>Real </span>Space</a></h1>
+								<h1><a href="<spring:url value='/' /> "><span>Real </span>Space</a></h1>
 							</div>
 						</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+								<li class="active"><a href="<spring:url value='/' />">Home <span class="sr-only">(current)</span></a></li>
 									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages<span class="caret"></span></a>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
 											<ul class="dropdown-menu">
-												<li><a href="about.html">About</a></li>
-												<li><a href="services.html">Services</a></li>
-												<li><a href="agents.html">Agents</a></li>
-												<li><a href="forrent.html">For Rent</a></li>
-												<li><a href="forsale.html">For Sale</a></li>
-												<li><a href="pricing.html">Pricing</a></li>
-												<li><a href="faqs.html">FAQs</a></li>
-												<li><a href="idxpress.html">IDXpress</a></li>
-												<li><a href="terms.html">Terms of Use</a></li>
-												<li><a href="privacy.html">Privacy Policy</a></li>
+												<c:forEach items="${categories}" var="category">
+												<li><a href="<spring:url value='/category/${category.getId}' />">${category.getName}</a></li>
+						 </c:forEach>
+												
+												
 											</ul>
 									</li>
 									<li class="dropdown ">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Property<span class="caret"></span></a>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register<span class="caret"></span></a>
 											<ul class="dropdown-menu">
-												<li><a href="defaultvariation.html">Default – Variation</a></li>
-												<li><a href="agentinsidebarvariation.html">Agent in Sidebar - Variation</a></li>
-												<li><a href="galleryvariation.html">Gallery - Variation</a></li>
+												<li><a href="<spring:url value='/ownerRegister' />">Owner</a></li>
+												<li><a href="<spring:url value='/ownerRegister' />">Client</a></li>
+												
 											</ul>
 									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallery <span class="caret"></span></a>
-											<ul class="dropdown-menu">
-												<li><a href="2columnsgallery.html">2 Columns Gallery</a></li>
-												<li><a href="3columnsgallery.html">3 Columns Gallery</a></li>
-												<li><a href="4columnsgallery.html">4 Columns Gallery</a></li>
-											</ul>
-									</li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="codes.html">Codes</a></li>
+									
+								
 								<li><a href="contact.html">Contact</a></li>
 							</ul>
 							<div class="phone">
