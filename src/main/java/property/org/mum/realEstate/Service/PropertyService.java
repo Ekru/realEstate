@@ -17,5 +17,6 @@ public interface PropertyService {
 	void deleteCategory(Category category);
 
 	void addPropertyToSaved(Property property);
-	
+
+	List<Property> SearchProperties(Category category, double minPrice, double maxPrice, String name);
 }

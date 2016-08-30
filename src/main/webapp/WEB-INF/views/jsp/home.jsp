@@ -40,14 +40,14 @@
 					<div class="col-md-3 place-grid">
 						<h5>All categories</h5>
 						<select class="sel">
-						<option value="">All Locations</option>
+						<option value="">All categories</option>
 						<c:forEach items="${categories}" var="category">
 						<option value="${category}">${category.getName}</option>
                          </c:forEach>
 						</select>
 					</div>
 					<div class="col-md-3 place-grid">
-					<h5>all sub location</h5>
+					<h5>The title </h5>
 					<div class="form-group">
   <label for="name">Name:</label>
   <input type="text" name="name" class="form-control" id="name">

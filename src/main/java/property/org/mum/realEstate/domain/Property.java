@@ -17,6 +17,21 @@ public class Property {
 	@GeneratedValue
 	private int id;
 	private double price;
+	private String name;
+
+	public int getId() {
+		return id;
+	}
+
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public double getPrice() {
 		return price;

@@ -1,5 +1,6 @@
 package property.org.mum.realEstate.ServiceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,12 @@ public class PropertyServiceImpl implements PropertyService {
 	@Override
 	public Property getPropertyById(int id) {
 		return propertyDAO.getPropertyById(id);
+	}
+
+	@Override
+	public List<Property> SearchProperties(Category category, double minPrice, double maxPrice, String name) {
+		List<Property> properties = new ArrayList();
+		return properties;
 	}
 
 }
