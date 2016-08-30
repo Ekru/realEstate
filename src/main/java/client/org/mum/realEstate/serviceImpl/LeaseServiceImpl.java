@@ -12,7 +12,7 @@ public class LeaseServiceImpl implements LeaseService {
 private LeaseDAO leaseDAO;
 
 
-@Override
+
 public Long save(Lease lease) {
 	
 	lease.getLeaseStatus().equals(LeaseStatus.NEW);
@@ -20,25 +20,25 @@ public Long save(Lease lease) {
 	
 }
 
-@Override
+
 public void delete(Lease lease) {
 	
 	leaseDAO.delete(lease);
 }
 
-@Override
+
 public Lease findById(Long id) {
 	
 	return leaseDAO.findOne(id);
 }
 
-@Override
+
 public Lease displayDetail(Long id) {
 	
 	return leaseDAO.getOne(id);
 }
 
-@Override
+
 public List<Lease> findAll() {
 	
 	return leaseDAO.findAll();

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import client.org.mum.realEstate.domain.Client;
 
@@ -15,6 +16,7 @@ public class SavedProperty {
 	@GeneratedValue
 	private int id;
 	private Date date;
+	@OneToOne
 	private Property property;
 	@ManyToOne
 	private Client client;

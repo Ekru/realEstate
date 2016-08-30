@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import owner.org.mum.realEstate.domain.Owner;
+
 @Entity
 public class Property {
 	@Id
@@ -20,9 +22,27 @@ public class Property {
 	private String name;
 	private boolean featured;
 	private double area;
+	private String description;
+	@ManyToOne
+	private Owner owner;
+	@OneToOne
+	private Address address;
+	@ManyToOne
+	@JoinColumn(name = "category")
+	private Category category;
+//	@OneToMany
+//	private List<Image> images;	
 
 	public double getArea() {
 		return area;
+	}
+
+	public Owner getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Owner owner) {
+		this.owner = owner;
 	}
 
 	public void setArea(double area) {
@@ -69,22 +89,9 @@ public class Property {
 		this.address = address;
 	}
 
-	public List<Image> getImages() {
-		return images;
-	}
+	
 
-	public void setImages(List<Image> images) {
-		this.images = images;
-	}
-
-	private String description;
-	@OneToOne
-	private Address address;
-	@ManyToOne
-	@JoinColumn(name = "category")
-	private Category category;
-	@OneToMany
-	private List<Image> images;
+	
 
 	public Category getCategory() {
 		return category;

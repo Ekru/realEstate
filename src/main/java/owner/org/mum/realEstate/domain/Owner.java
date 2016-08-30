@@ -23,7 +23,7 @@ public class Owner {
 	@OneToOne
 	private Address address;
 	
-	@OneToMany(mappedBy="property")
+	@OneToMany(mappedBy="owner")
 	private List<Property> properties;
 	
 	public Owner(){

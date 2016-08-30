@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 import property.org.mum.realEstate.domain.SavedProperty;
 
-public interface SavedPropertyDAO extends JpaRepository<SavedPropertyDAO, Integer> {
+public interface SavedPropertyDAO extends JpaRepository<SavedProperty, Integer> {
 }
