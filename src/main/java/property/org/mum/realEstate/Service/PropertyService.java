@@ -4,6 +4,7 @@ import java.util.List;
 
 import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
+import property.org.mum.realEstate.domain.SavedProperty;
 
 public interface PropertyService {
 	List<Property> getAllProperies();
@@ -16,7 +17,9 @@ public interface PropertyService {
 
 	void deleteCategory(Category category);
 
-	void addPropertyToSaved(Property property);
+	void addPropertyToSaved(SavedProperty sProperty);
 
 	List<Property> SearchProperties(Category category, double minPrice, double maxPrice, String name);
+
+	List<Property> getFeaturedProperties();
 }

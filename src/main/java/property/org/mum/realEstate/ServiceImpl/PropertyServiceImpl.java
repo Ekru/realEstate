@@ -6,53 +6,65 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import property.org.mum.realEstate.DAO.CategoryDAO;
 import property.org.mum.realEstate.DAO.PropertyDAO;
+import property.org.mum.realEstate.DAO.SavedPropertyDAO;
 import property.org.mum.realEstate.Service.PropertyService;
 import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
+import property.org.mum.realEstate.domain.SavedProperty;
 
 @Service
 public class PropertyServiceImpl implements PropertyService {
 	@Autowired
 	private PropertyDAO propertyDAO;
+	@Autowired
+	private CategoryDAO categoryDAO;
+	@Autowired
+	private SavedPropertyDAO savedDAO;
 
 	@Override
 	public List<Property> getAllProperies() {
-		return propertyDAO.getAllProperies();
+		return propertyDAO.findAll();
 	}
 
 	@Override
 	public List<Property> getProperitiesByCategory(Category category) {
-		return propertyDAO.getProperitiesByCategory(category);
+		return propertyDAO.findByCategory(category);
 	}
 
 	@Override
 	public void addNewProperty(Property property) {
-		propertyDAO.addNewProperty(property);
+		propertyDAO.save(property);
 
 	}
 
 	@Override
 	public void deleteCategory(Category category) {
-		propertyDAO.deleteCategory(category);
+		categoryDAO.delete(category);
 
 	}
 
 	@Override
-	public void addPropertyToSaved(Property property) {
-		// TODO Auto-generated method stub
+	public void addPropertyToSaved(SavedProperty sProperty) {
+		savedDAO.saveAndFlush(sProperty);
 
 	}
 
 	@Override
 	public Property getPropertyById(int id) {
-		return propertyDAO.getPropertyById(id);
+		return propertyDAO.findOne(id);
 	}
 
 	@Override
 	public List<Property> SearchProperties(Category category, double minPrice, double maxPrice, String name) {
-		List<Property> properties = new ArrayList();
+		List<Property> properties = propertyDAO.findAll();
 		return properties;
+	}
+
+	@Override
+	public List<Property> getFeaturedProperties() {
+		return propertyDAO.findByFeatured(true);
 	}
 
 }

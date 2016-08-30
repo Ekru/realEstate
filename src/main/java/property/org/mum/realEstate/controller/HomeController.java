@@ -34,8 +34,10 @@ public class HomeController {
 			@PathVariable("minPrice") double minPrice, @PathVariable("maxPrice") double maxPrice,
 			@PathVariable("name") String name) {
 		List<Property> properties = pService.SearchProperties(category, minPrice, maxPrice, name);
+		List<Property> featuredProperties = pService.getFeaturedProperties();
 		model.addAttribute("properties", properties);
 		model.addAttribute("pageToRender", "search.jsp");
+		model.addAttribute("featuredProperties", featuredProperties);
 		return "template";
 	}
 }

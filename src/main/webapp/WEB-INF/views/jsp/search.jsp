@@ -4,7 +4,7 @@
 		<!---banner--->
 		<div class="banner-section">
 			<div class="container">
-				<h2>For Rent</h2>
+				<h2>Search Results</h2>
 			</div>
 		</div>
 		<!---banner--->
@@ -36,9 +36,10 @@
 												</div>
 												<div class="clearfix"></div>
 												<ul>
-													<li><span> 5000 </span>Area</li>
-													<li><span> 3 </span>Bathrooms</li>
-													<li><span> 3 </span>Bedrooms</li>
+												<li><span> ${property.getId()} </span>Property Id </li>
+													<li><span> ${property.getPrice()} </span>Price</li>
+													<li><span> ${property.getAria()} </span>Bathrooms</li>
+													
 													<li><span> 2 </span>Garages</li>
 												</ul>
 											</div>
@@ -159,16 +160,14 @@
 						</div>
 						<div class="feature">
 							<h4>Featured Properties</h4>
+								<c:forEach items="${featuredProperties}" var="property">
 							<div class="feature-top">
 							<img src="images/s6.jpg" class="img-responsive" alt="/">
-									<h5>60 Merrick Way, Miami</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+									<h5>${property.getName()}</h5>
+									<p>${property.getDescription() },… <a href="<spring:url value='/property/${property.getId()}' />">Know More</a></p>
 							</div>
-							<div class="feature-top top2">
-							<img src="images/s7.jpg" class="img-responsive" alt="/">
-									<h5>Villa in Hialeah, Dade</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-							</div>
+							
+							</c:forEach>
 						</div>
 					</div>
 					<div class="clearfix"></div>

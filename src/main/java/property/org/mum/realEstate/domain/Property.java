@@ -18,12 +18,32 @@ public class Property {
 	private int id;
 	private double price;
 	private String name;
+	private boolean featured;
+	private double area;
+
+	public double getArea() {
+		return area;
+	}
+
+	public void setArea(double area) {
+		this.area = area;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public boolean isFeatured() {
+		return featured;
+	}
+
+	public void setFeatured(boolean featured) {
+		this.featured = featured;
+	}
 
 	public int getId() {
 		return id;
 	}
-
-	
 
 	public String getName() {
 		return name;

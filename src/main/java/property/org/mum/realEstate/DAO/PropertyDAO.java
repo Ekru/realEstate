@@ -2,20 +2,19 @@ package property.org.mum.realEstate.DAO;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
-import property.org.mum.realEstate.domain.SavedProperty;
 
-public interface PropertyDAO {
-	List<Property> getAllProperies();
+public interface PropertyDAO extends JpaRepository<Property, Integer> {
 
-	List<Property> getProperitiesByCategory(Category category);
+	public List<Property> findById(int id);
 
-	Property getPropertyById(int id);
+	public List<Property> findByCategory(Category category);
 
-	void addNewProperty(Property property);
+	public List<Property> findAll();
 
-	void deleteCategory(Category category);
-
-	void addPropertyToSaved(SavedProperty sProperty);
+	public Property findOne(int id);
+    public List<Property> findByFeatured(boolean featured);
 }
