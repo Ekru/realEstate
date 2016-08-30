@@ -19,8 +19,9 @@ import property.org.mum.realEstate.Service.PropertyService;
 public class ClientController {
 	@Autowired
 	private PropertyService propertyService;
-	
+	@Autowired
 	private ClientService clientService;
+	@Autowired
 	private LeaseService leaseService;
 	
 	@RequestMapping(value="/clientRegster",method=RequestMethod.GET)

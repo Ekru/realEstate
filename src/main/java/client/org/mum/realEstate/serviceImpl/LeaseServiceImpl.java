@@ -2,13 +2,17 @@ package client.org.mum.realEstate.serviceImpl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import client.org.mum.realEstate.DAO.LeaseDAO;
 import client.org.mum.realEstate.domain.Client;
 import client.org.mum.realEstate.domain.Lease;
 import client.org.mum.realEstate.domain.LeaseStatus;
 import client.org.mum.realEstate.service.LeaseService;
-
+@Service
 public class LeaseServiceImpl implements LeaseService {
+	@Autowired
 private LeaseDAO leaseDAO;
 
 
