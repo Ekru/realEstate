@@ -18,11 +18,18 @@
 							<div class="login-grids">
 								<div class="login">
 									<div class="login-right">
-										<form>
+										<form action="client"  method="post">
 											<h3>Register </h3>
-											<input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-											<input type="text" value="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
-											<input type="text" value="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">	
+											<input type="text" name="firstName" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}" required="">
+											<input type="text" name="lastName" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}" required="">
+											<input type="text" name="email"value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">	
+											<input type="text" name="phone"value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'phone';}" required="">	
+											<input type="text" name="address.street"value="Street" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Street';}" required="">
+											<input type="text" name="address.city"value="City" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'City';}" required="">
+											<input type="text" name="state.state"value="State" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'State';}" required="">
+											
+											<input type="text" name="address.zip"value="Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Zip';}" required="">
+												
 											<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
 											
 											<input type="submit" value="Register Now" >

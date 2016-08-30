@@ -15,7 +15,7 @@ private ClientDAO clientDAO;
 	
 	public void addnewClient(Client client) {
 		
-		clientDAO.save(client).getCustomerNo();
+		clientDAO.save(client);
 	}
 
 	

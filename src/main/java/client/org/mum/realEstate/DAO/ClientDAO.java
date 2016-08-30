@@ -14,7 +14,7 @@ public interface ClientDAO extends JpaRepository<Client, Long>{
 
 //	List<Client> getAllClient();
 //
-//	Client getClient(int clientNo);
+	//Client getClientByName(int clientNo);
 //
 //	Client findClient(int clientNo);
 

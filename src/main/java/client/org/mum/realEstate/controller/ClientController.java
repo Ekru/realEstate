@@ -13,6 +13,7 @@ import client.org.mum.realEstate.domain.Lease;
 import client.org.mum.realEstate.service.ClientService;
 import client.org.mum.realEstate.service.LeaseService;
 import owner.org.mum.realEstate.domain.Owner;
+import property.org.mum.realEstate.Service.AddressService;
 import property.org.mum.realEstate.Service.PropertyService;
 
 @Controller
@@ -23,25 +24,30 @@ public class ClientController {
 	private ClientService clientService;
 	@Autowired
 	private LeaseService leaseService;
+	@Autowired
+	private AddressService addressService;
 	
-	@RequestMapping(value="/clientRegster",method=RequestMethod.GET)
+	@RequestMapping(value="/register",method=RequestMethod.GET)
 	public String registerClient(Model model) {
 		
 		//ownerService.addNewOwner(owner);
 		//model.addAttribute("msg", "Owner added successfully!");
-		model.addAttribute("pageToRender", "clientRegster.jsp");
+		model.addAttribute("pageToRender", "register.jsp");
 		return "template";
 	}
-	@RequestMapping(value="/clientRegster",method=RequestMethod.POST)
+	@RequestMapping(value="/client",method=RequestMethod.POST)
 	public String submitclient(@ModelAttribute("client") Client client,BindingResult result,Model model) {
 		
 		if(result.hasErrors()){
-			model.addAttribute("pageToRender", "clientRegster.jsp");
+			model.addAttribute("pageToRender", "register.jsp");
 			return "template";
 		}
+		addressService.saveAddress(client.getAddress());
 		clientService.addnewClient(client);
+		
+		
 		//model.addAttribute("msg", "Owner added successfully!");
-		model.addAttribute("pageToRender", "clientRegsterSuccess.jsp");
+		model.addAttribute("pageToRender", "client.jsp");
 		return "template";
 	}
 	@RequestMapping(value="/leaseApplication",method=RequestMethod.GET)

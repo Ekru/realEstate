@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import property.org.mum.realEstate.domain.Address;
 @Entity
@@ -17,11 +18,19 @@ public class Client {
 		private String lastName;
 		private String email; 
 		private String phone; 
-		@ManyToOne(cascade = CascadeType.MERGE)
+		@OneToOne
 		@JoinColumn(name = "id")
-		private Address addressNo;
+		private Address address;
 		
 		
+		public Address getAddress() {
+			return address;
+		}
+
+		public void setAddress(Address address) {
+			this.address = address;
+		}
+
 		public Client(){}
 		
 		public Client(String fname,String lname,String email,String phone){
