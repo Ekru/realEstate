@@ -238,28 +238,13 @@
 							<div class="col-md-3 feature-grid">
 								<img src="<spring:url value='/resources/images/f1.jpg'/>" class="img-responsive" alt="/">
 								<h5>${property.getName()}</h5>
-								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-								<span>$2,500 Per Month</span>
+								<p>${property.getDescription()}� <a href="<spring:url value='/property/${property.getId()}' /> ">Know More</a></p>
+								<span>$ ${property.getPrice()}</span>
 							</div>
 							</c:forEach>
-							<div class="col-md-3 feature-grid">
-								<img src="<spring:url value='/resources/images/f2.jpg'/>" class="img-responsive" alt="/">
-								<h5>401 Biscayne Boulevard</h5>
-								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-								<span>$7,500 Per Month</span>
-							</div>
-							<div class="col-md-3 feature-grid">
-								<img src="<spring:url value='/resources/images/f3.jpg'/>" class="img-responsive" alt="/">
-								<h5>154 Southwest  Terra</h5>
-								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-								<span>$9,500 Per Month</span>
-							</div>
-							<div class="col-md-3 feature-grid">
-								<img src="<spring:url value='/resources/images/f4.jpg'/>" class="img-responsive" alt="/">
-								<h5>Florida 5, Pinecrest, FL</h5>
-								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-								<span>$5,500 Per Month</span>
-							</div>
+							
+							
+							
 							<div class="clearfix"></div>
 						</div>
 					</div>
