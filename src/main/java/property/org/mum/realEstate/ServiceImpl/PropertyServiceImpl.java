@@ -47,7 +47,7 @@ public class PropertyServiceImpl implements PropertyService {
 
 	@Override
 	public void addPropertyToSaved(SavedProperty sProperty) {
-		savedDAO.saveAndFlush(sProperty);
+		//savedDAO.saveAndFlush(sProperty);
 
 	}
 

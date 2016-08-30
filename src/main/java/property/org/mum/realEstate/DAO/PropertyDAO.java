@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
-@Repository
+
 public interface PropertyDAO extends JpaRepository<Property, Integer> {
 
 //	public List<Property> findById(int id);

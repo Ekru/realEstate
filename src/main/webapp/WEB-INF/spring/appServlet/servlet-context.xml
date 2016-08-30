@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	
-	xsi:schemaLocation="
-	
-        http://www.springframework.org/schema/beans     
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/mvc 
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd
-        http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+
+	<jpa:repositories base-package="*.org.mum.realEstate.DAO"/>
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
+	<!-- Enables annotation-driven transaction management. -->
+	<tx:annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
@@ -26,53 +30,40 @@
 	</bean>
 	
 	<context:component-scan base-package="*.org.mum.realEstate.*" />
-	  <bean id="sessionFactory"
-                class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	  <bean id="entityManagerFactory"
+                class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
                 <property name="dataSource" ref="dataSource" />
-                <property name="hibernateProperties" ref="hibernateProperties" />
-                <!-- OR mapping files. -->
-                <property name="annotatedClasses">
-                        <list>
-                                <value>client.org.mum.realEstate.domain.Client</value>
-                                <value>client.org.mum.realEstate.domain.Lease</value>
-                                 <value>client.org.mum.realEstate.domain.User</value>
-                                <value>owner.org.mum.realEstate.domain.Owner</value>
-                                <value>property.org.mum.realEstate.domain.Address</value>
-                                <value>property.org.mum.realEstate.domain.Category</value>
-                                <value>property.org.mum.realEstate.domain.Property</value>
-                                <value>property.org.mum.realEstate.domain.SavedProperty</value>
-                        </list>
+                <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
+                <property name="jpaProperties">
+                	  <props>
+                          <prop key="hibernate.hbm2ddl.auto">create</prop>
+                          <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                          <prop key="connection.pool_size">1</prop>
+                          <prop key="hibernate.show_sql">true</prop>
+                      </props>                	
                 </property>
+                <property name="packagesToScan" value="*.org.mum.realEstate.domain"/>
         </bean>
+        
+    <bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+    
          <!-- hibernate Properties -->
-        <bean id="hibernateProperties"
-                class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-                <property name="properties">
-                        <props>
-                                <prop key="hibernate.hbm2ddl.auto">create</prop>
-                                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect
-                                </prop>
-                                <prop key="connection.pool_size">1</prop>
-                                <prop key="hibernate.show_sql">true</prop>
-                        </props>
-                </property>
-        </bean>
         
 
     
-        <bean id="txManager"
-                class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-                <property name="sessionFactory" ref="sessionFactory" />
-        </bean>
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+        
          <!-- the datasource -->
         <bean id="dataSource"
                 class="org.springframework.jdbc.datasource.DriverManagerDataSource">
                 <property name="driverClassName" value="com.mysql.jdbc.Driver" />
                 <property name="url"
-value="jdbc:mysql://localhost:3306/realestatedb"
+value="jdbc:mysql://localhost:3306/realestatedb?createDatabaseIfNotExist=true"
 />
                 <property name="username" value="root" />
-                <property name="password" value="111111" />
+                <property name="password" value="password" />
         </bean>
 	
 	
