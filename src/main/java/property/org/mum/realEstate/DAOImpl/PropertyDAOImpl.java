@@ -21,14 +21,14 @@ public class PropertyDAOImpl implements PropertyDAO {
 
 	@Override
 	public List<Property> getAllProperies() {
-		
-		return null;
+		List<Property> properties=new ArrayList();
+		return properties;
 	}
 
 	@Override
 	public List<Property> getProperitiesByCategory(Category category) {
-		
-		return null;
+		List<Property> properties=new ArrayList();
+		return properties;
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class PropertyDAOImpl implements PropertyDAO {
 
 	@Override
 	public Property getPropertyById(int id) {
-		return null;
+		Property property=new Property();
+		return property;
 	}
 
 }
