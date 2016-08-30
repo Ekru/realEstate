@@ -9,8 +9,8 @@ public interface ClientService {
 
 	List<Client> getAllClient();
 
-	Client getClient(int clientNo);
+	Client getClient(long clientNo);
 
-	Client findClient(int clientNo);
+	Client findClient(long clientNo);
 
 }

@@ -10,11 +10,11 @@ import client.org.mum.realEstate.service.LeaseService;
 
 public class LeaseServiceImpl implements LeaseService {
 private LeaseDAO leaseDAO;
-//private Lease lease;
+
 
 @Override
 public Long save(Lease lease) {
-	// TODO Auto-generated method stub
+	
 	lease.getLeaseStatus().equals(LeaseStatus.NEW);
 	return leaseDAO.save(lease).getLeaseId();
 	
@@ -22,32 +22,32 @@ public Long save(Lease lease) {
 
 @Override
 public void delete(Lease lease) {
-	// TODO Auto-generated method stub
+	
 	leaseDAO.delete(lease);
 }
 
 @Override
 public Lease findById(Long id) {
-	// TODO Auto-generated method stub
-	return null;
+	
+	return leaseDAO.findOne(id);
 }
 
 @Override
 public Lease displayDetail(Long id) {
-	// TODO Auto-generated method stub
-	return null;
+	
+	return leaseDAO.getOne(id);
 }
 
 @Override
 public List<Lease> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+	
+	return leaseDAO.findAll();
 }
 
 
 @Override
 public void updateStatus(Lease lease) {
-	// TODO Auto-generated method stub
+	
 	if(lease.getIncome() > 27000){
 		lease.setLeaseStatus(LeaseStatus.ACCEPTED);
 	}

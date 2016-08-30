@@ -1,5 +1,66 @@
 package client.org.mum.realEstate.controller;
 
-public class ClientController {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import client.org.mum.realEstate.domain.Client;
+import client.org.mum.realEstate.domain.Lease;
+import client.org.mum.realEstate.service.ClientService;
+import client.org.mum.realEstate.service.LeaseService;
+import owner.org.mum.realEstate.domain.Owner;
+import property.org.mum.realEstate.Service.PropertyService;
+
+@Controller
+public class ClientController {
+	@Autowired
+	private PropertyService propertyService;
+	
+	private ClientService clientService;
+	private LeaseService leaseService;
+	
+	@RequestMapping(value="/clientRegster",method=RequestMethod.GET)
+	public String registerClient(Model model) {
+		
+		//ownerService.addNewOwner(owner);
+		//model.addAttribute("msg", "Owner added successfully!");
+		model.addAttribute("pageToRender", "clientRegster.jsp");
+		return "template";
+	}
+	@RequestMapping(value="/clientRegster",method=RequestMethod.POST)
+	public String submitclient(@ModelAttribute("client") Client client,BindingResult result,Model model) {
+		
+		if(result.hasErrors()){
+			model.addAttribute("pageToRender", "clientRegster.jsp");
+			return "template";
+		}
+		clientService.addnewClient(client);
+		//model.addAttribute("msg", "Owner added successfully!");
+		model.addAttribute("pageToRender", "clientRegsterSuccess.jsp");
+		return "template";
+	}
+	@RequestMapping(value="/leaseApplication",method=RequestMethod.GET)
+	public String addNewOwner(Model model) {
+		
+		//ownerService.addNewOwner(owner);
+		//model.addAttribute("msg", "Owner added successfully!");
+		model.addAttribute("pageToRender", "leaseApplication.jsp");
+		return "template";
+	}
+	@RequestMapping(value="/leaseApplication",method=RequestMethod.POST)
+	public String submitOwner(@ModelAttribute("lease") Lease lease,BindingResult result,Model model) {
+		
+		if(result.hasErrors()){
+			model.addAttribute("pageToRender", "leaseApplication.jsp");
+			return "template";
+		}
+		leaseService.save(lease);
+		//model.addAttribute("msg", "Owner added successfully!");
+		model.addAttribute("pageToRender", "leaseApplicationSuccess.jsp");
+		return "template";
+	}
 }

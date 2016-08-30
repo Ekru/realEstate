@@ -21,15 +21,13 @@ public class Lease {
 
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "clientNo")
-	private Client clientNo;
+	private Client client;
+	
+	
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "id")
-	private Address addressNo;
-	
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "id")
-	private Property propertyNo;
+	private Property property;
 
 	
 	private double income;
@@ -70,28 +68,22 @@ public class Lease {
 	}
 
 	public Client getClientNo() {
-		return clientNo;
+		return client;
 	}
 
 	public void setClientNo(Client clientNo) {
-		this.clientNo = clientNo;
+		this.client = clientNo;
 	}
 
 	public Property getPropertyNo() {
-		return propertyNo;
+		return property;
 	}
 
 	public void setPropertyNo(Property propertyNo) {
-		this.propertyNo = propertyNo;
+		this.property = propertyNo;
 	}
 
-	public Address getAddressNo() {
-		return addressNo;
-	}
-
-	public void setAddressNo(Address addressNo) {
-		this.addressNo = addressNo;
-	}
+	
 
 	public Date getLeaseDate() {
 		return leaseDate;
