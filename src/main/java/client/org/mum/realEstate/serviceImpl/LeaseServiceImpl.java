@@ -51,7 +51,7 @@ public List<Lease> findAll() {
 }
 
 
-@Override
+
 public void updateStatus(Lease lease) {
 	
 	if(lease.getIncome() > 27000){
