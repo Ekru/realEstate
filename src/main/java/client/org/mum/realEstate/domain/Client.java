@@ -13,7 +13,7 @@ import property.org.mum.realEstate.domain.Address;
 public class Client {
 
 		@Id @GeneratedValue
-		private long customerNo; 
+		private long clientNo; 
 		private String firstName; 
 		private String lastName;
 		private String email; 
@@ -41,12 +41,12 @@ public class Client {
 			
 		}
 
-		public long getCustomerNo() {
-			return customerNo;
+		public long getClientNo() {
+			return clientNo;
 		}
 
-		public void setCustomerNo(long customerNo) {
-			this.customerNo = customerNo;
+		public void setClientNo(long customerNo) {
+			this.clientNo = customerNo;
 		}
 
 		public String getFirstName() {

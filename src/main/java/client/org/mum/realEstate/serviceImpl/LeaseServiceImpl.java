@@ -67,5 +67,12 @@ public void updateStatus(Lease lease) {
 }
 
 
+@Override
+public List<Lease> findByClient(Client client) {
+	// TODO Auto-generated method stub
+	return leaseDAO.findByClient(client);
+}
+
+
 
 }

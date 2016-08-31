@@ -51,14 +51,14 @@ public class ClientController {
 		return "template";
 	}
 	@RequestMapping(value="/leaseForm",method=RequestMethod.GET)
-	public String addNewOwner(Model model) {
+	public String addNewlease(Model model) {
 		
 		
 		model.addAttribute("pageToRender", "leaseForm.jsp");
 		return "template";
 	}
 	@RequestMapping(value="/lease",method=RequestMethod.POST)
-	public String submitOwner(@ModelAttribute("lease") Lease lease,BindingResult result,Model model) {
+	public String submitLease(@ModelAttribute("lease") Lease lease,BindingResult result,Model model) {
 		
 		if(result.hasErrors()){
 			
@@ -69,6 +69,7 @@ public class ClientController {
 		addressService.saveAddress(lease.getClient().getAddress());
 		clientService.addnewClient(lease.getClient());
 		leaseService.save(lease);
+		leaseService.updateStatus(lease);
 		
 		model.addAttribute("pageToRender", "lease.jsp");
 		return "template";
