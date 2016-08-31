@@ -17,7 +17,7 @@ public interface LeaseDAO extends JpaRepository<Lease, Long>{
 
 	//public List<Lease> getAllLease(); 
 
-	public List<Lease> findByleaseId(Long leaseId);
+	//public List<Lease> findByleaseId(Long leaseId);
 	public List<Lease> findByincome(double income);
 
 }

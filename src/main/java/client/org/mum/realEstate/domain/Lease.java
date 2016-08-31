@@ -30,18 +30,18 @@ public class Lease {
 	private Property property;
 
 	
-	private double income;
+	private int income;
 	private Date leaseDate;
 	private LeaseStatus leaseStatus;
 
 	public Lease() {
 	}
 	
-	public double getIncome() {
+	public int getIncome() {
 		return income;
 	}
 
-	public void setIncome(double income) {
+	public void setIncome(int income) {
 		this.income = income;
 	}
 
@@ -67,20 +67,20 @@ public class Lease {
 		this.leaseId = leaseId;
 	}
 
-	public Client getClientNo() {
+	public Client getClient() {
 		return client;
 	}
 
-	public void setClientNo(Client clientNo) {
-		this.client = clientNo;
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
-	public Property getPropertyNo() {
+	public Property getProperty() {
 		return property;
 	}
 
-	public void setPropertyNo(Property propertyNo) {
-		this.property = propertyNo;
+	public void setPropertyNo(Property property) {
+		this.property = property;
 	}
 
 	

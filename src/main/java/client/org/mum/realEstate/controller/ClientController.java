@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import client.org.mum.realEstate.domain.Client;
 import client.org.mum.realEstate.domain.Lease;
+import client.org.mum.realEstate.domain.LeaseStatus;
 import client.org.mum.realEstate.service.ClientService;
 import client.org.mum.realEstate.service.LeaseService;
 import owner.org.mum.realEstate.domain.Owner;
@@ -30,8 +31,7 @@ public class ClientController {
 	@RequestMapping(value="/register",method=RequestMethod.GET)
 	public String registerClient(Model model) {
 		
-		//ownerService.addNewOwner(owner);
-		//model.addAttribute("msg", "Owner added successfully!");
+		
 		model.addAttribute("pageToRender", "register.jsp");
 		return "template";
 	}
@@ -46,28 +46,31 @@ public class ClientController {
 		clientService.addnewClient(client);
 		
 		
-		//model.addAttribute("msg", "Owner added successfully!");
+		
 		model.addAttribute("pageToRender", "client.jsp");
 		return "template";
 	}
-	@RequestMapping(value="/leaseApplication",method=RequestMethod.GET)
+	@RequestMapping(value="/leaseForm",method=RequestMethod.GET)
 	public String addNewOwner(Model model) {
 		
-		//ownerService.addNewOwner(owner);
-		//model.addAttribute("msg", "Owner added successfully!");
-		model.addAttribute("pageToRender", "leaseApplication.jsp");
+		
+		model.addAttribute("pageToRender", "leaseForm.jsp");
 		return "template";
 	}
-	@RequestMapping(value="/leaseApplication",method=RequestMethod.POST)
+	@RequestMapping(value="/lease",method=RequestMethod.POST)
 	public String submitOwner(@ModelAttribute("lease") Lease lease,BindingResult result,Model model) {
 		
 		if(result.hasErrors()){
-			model.addAttribute("pageToRender", "leaseApplication.jsp");
+			
+			model.addAttribute("pageToRender", "leaseForm.jsp");
 			return "template";
 		}
+		lease.setLeaseStatus(LeaseStatus.NEW);
+		addressService.saveAddress(lease.getClient().getAddress());
+		clientService.addnewClient(lease.getClient());
 		leaseService.save(lease);
-		//model.addAttribute("msg", "Owner added successfully!");
-		model.addAttribute("pageToRender", "leaseApplicationSuccess.jsp");
+		
+		model.addAttribute("pageToRender", "lease.jsp");
 		return "template";
 	}
 }

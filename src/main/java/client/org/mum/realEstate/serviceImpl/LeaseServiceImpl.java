@@ -17,10 +17,12 @@ private LeaseDAO leaseDAO;
 
 
 
-public Long save(Lease lease) {
+public void save(Lease lease) {
 	
-	lease.getLeaseStatus().equals(LeaseStatus.NEW);
-	return leaseDAO.save(lease).getLeaseId();
+	if(lease.getLeaseStatus().equals(LeaseStatus.NEW)){
+		leaseDAO.save(lease);
+	};
+	 
 	
 }
 
@@ -63,4 +65,7 @@ public void updateStatus(Lease lease) {
 	}
 	
 }
+
+
+
 }

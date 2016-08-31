@@ -7,7 +7,7 @@ import client.org.mum.realEstate.domain.Lease;
 
 public interface LeaseService {
 	
-	public Long save(Lease lease);
+	void save(Lease lease);
 
 	public void delete(Lease lease);
 
