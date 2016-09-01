@@ -5,7 +5,8 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
 	<http auto-config="true">
-		<intercept-url pattern="/clientProfile" access="ROLE_USER" />
+	
+		<intercept-url pattern="/clientProfile" access="hasRole('ROLE_USER')" />
 		
 		<form-login 
 		    login-page="/login" 

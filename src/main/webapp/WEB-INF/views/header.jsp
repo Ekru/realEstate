@@ -60,7 +60,7 @@
 									</li>
 									
 								
-								<li><a href="contact.html">Contact</a></li>
+								
 							</ul>
 							<div class="phone">
 							<span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>1-999-4563-555</span>

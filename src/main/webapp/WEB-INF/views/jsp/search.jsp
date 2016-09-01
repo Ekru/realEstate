@@ -38,7 +38,7 @@
 													<li><span> ${property.getPrice()} </span>Price</li>
 													<li><span> ${property.getArea()} </span>Area</li>
 													
-													<li><span> 2 </span>Garages</li>
+													<li><span> <a href="<spring:url value='/leaseForm/${property.getId()}'/>">Apply</a> </span>Write Lease</li>
 												</ul>
 											</div>
 										</div>		
