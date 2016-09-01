@@ -1,16 +1,11 @@
 package property.org.mum.realEstate.domain;
 
-import java.awt.Image;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
 import owner.org.mum.realEstate.domain.Owner;
 
 @Entity
@@ -30,8 +25,6 @@ public class Property {
 	@ManyToOne
 	@JoinColumn(name = "category")
 	private Category category;
-//	@OneToMany
-//	private List<Image> images;	
 
 	public double getArea() {
 		return area;
@@ -88,10 +81,6 @@ public class Property {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-
-	
-
-	
 
 	public Category getCategory() {
 		return category;

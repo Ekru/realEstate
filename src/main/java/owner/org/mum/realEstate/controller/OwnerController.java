@@ -16,7 +16,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import client.org.mum.realEstate.domain.Client;
 import client.org.mum.realEstate.domain.Lease;
+import client.org.mum.realEstate.domain.LeaseStatus;
 import client.org.mum.realEstate.service.ClientService;
+import client.org.mum.realEstate.service.LeaseService;
 import owner.org.mum.realEstate.domain.Owner;
 import owner.org.mum.realEstate.service.OwnerService;
 import property.org.mum.realEstate.Service.AddressService;
@@ -30,22 +32,23 @@ public class OwnerController {
 	@Autowired
 	private PropertyService propertyService;
 	//@Autowired
-	//private ClientService clientService;
+	private ClientService clientService;
 	@Autowired
 	private OwnerService ownerService;
 	@Autowired
 	private AddressService addressService;
+	@Autowired
+	private LeaseService leaseService;
 	
 	//private List<Property> ownerPropertylist=new ArrayList<Property>();
 	
 	@RequestMapping(value="/addOwner",method=RequestMethod.GET)
-	public String addNewOwner(Model model) {		
+	public String addNewOwner(Model model) {			
 		
-		//model.addAttribute("msg", "Owner added successfully!");
 		model.addAttribute("pageToRender", "addOwner.jsp");
 		return "template";
 	}
-	@RequestMapping(value="/ownerProfile",method=RequestMethod.POST)
+	@RequestMapping(value="/addOwner",method=RequestMethod.POST)
 	public String submitOwner(@ModelAttribute("owner") Owner owner,BindingResult result,Model model) {
 		
 		if(result.hasErrors()){
@@ -56,7 +59,7 @@ public class OwnerController {
 		ownerService.addNewOwner(owner);		
 		//model.addAttribute("ownerPropertylist", ownerPropertylist);
 		model.addAttribute("pageToRender", "ownerProfile.jsp");
-		return "template";
+		return "redirect:/ownerProfile";
 	}
 	@RequestMapping(value="/owners/{id}/edit")
 	public String editOwner(@PathVariable int id,Model model,
@@ -99,27 +102,41 @@ public class OwnerController {
 	@RequestMapping(value="/addProperty",method=RequestMethod.GET)
 	public String addNewProperty(Model model) {
 		
-		//ownerService.addNewOwner(owner);
-		//model.addAttribute("msg", "Owner added successfully!");
+		model.addAttribute("property",new Property());
 		model.addAttribute("pageToRender", "addProperty.jsp");
 		return "template";
 	}
-	@RequestMapping(value="addProperty/ownerProfile",method=RequestMethod.POST)
+	@RequestMapping(value="/addProperty",method=RequestMethod.POST)
 	public String submitProperty(@ModelAttribute("property") Property property,BindingResult result,Model model) {
 		
 		if(result.hasErrors()){
 			model.addAttribute("pageToRender", "addProperty.jsp");
 			return "template";
-		}
-		/*if(property.getAddress().isNew()){
-			
-		}*/
+		}		
 		addressService.saveAddress(property.getAddress());
 		propertyService.addNewProperty(property);
+		
 		//model.addAttribute("msg", "Owner added successfully!");
 		List<Property> ownerPropertylist =new ArrayList<Property>();
 		ownerPropertylist.add(property);
 	    model.addAttribute("ownerPropertylist", ownerPropertylist);
+		model.addAttribute("pageToRender", "ownerProfile.jsp");
+		return "redirect:/ownerProfile";
+	}
+	@RequestMapping(value="/ownerProfile",method=RequestMethod.GET)
+	public String getOwnerProfile(Model model) {
+		int ownerId=1;
+		Owner owner = ownerService.getOwnerById(ownerId);
+		List<Property> propertyList = propertyService.getPropertiesByOwner(owner);
+		List<Lease> leases = new ArrayList<Lease>();		
+		for(Lease l:leaseService.findAll()){
+			if(l.getLeaseStatus()==LeaseStatus.NEW)
+				leases.add(l);
+		}
+		
+		model.addAttribute("owner",owner);
+		model.addAttribute("propertyList",propertyList);
+		model.addAttribute("leases",leases);
 		model.addAttribute("pageToRender", "ownerProfile.jsp");
 		return "template";
 	}
@@ -151,7 +168,7 @@ public class OwnerController {
 		return "template";
 		
 	}
-	@RequestMapping(value="/properties")
+	@RequestMapping(value="/properties",method=RequestMethod.GET)
 	public String getAllproperties(Model model){
 		
 		List<Property> properties=propertyService.getAllProperies();
@@ -175,7 +192,7 @@ public class OwnerController {
 	@RequestMapping(value = "/clients")
 	public String getAllClients(Model model) {
 
-		//List<Client> clients = clientService.getAllClient();
+		List<Client> clients = clientService.getAllClient();
 		//model.addAttribute("clients", clients);
 		model.addAttribute("pageToRender", "clients.jsp");
 		return "template";

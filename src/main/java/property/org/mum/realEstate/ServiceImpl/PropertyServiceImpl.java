@@ -63,12 +63,25 @@ public class PropertyServiceImpl implements PropertyService {
 	}
 
 	public List<Property> SearchProperties(Search search) {
-		String name=search.getName();
-		Category category=categoryDAO.findOne(search.getCatId());
-		double minPrice=search.getMinPrice();
-		double maxPrice=search.getMaxPrice();
-		// return propertyDAO.searchProperty(category,);
-		return propertyDAO.findAll();
+		List<Property> returnedList = new ArrayList<Property>();
+		Category category = new Category();
+		if (search.getCatId() != 0)
+			category = categoryDAO.findOne(search.getCatId());
+		if (search.getCatId() == 0 && search.getName().isEmpty() && search.getPrice() == 0) {
+			returnedList = propertyDAO.findAll();
+		} else if (search.getCatId() != 0 && search.getName().isEmpty() && search.getPrice() == 0) {
+			returnedList = propertyDAO.findByCategory(category);
+		} else if (search.getCatId() != 0 && !search.getName().isEmpty() && search.getPrice() == 0) {
+			returnedList = propertyDAO.findByCategoryInAndNameIn(category, search.getName());
+		} else if (search.getCatId() != 0 && search.getName().isEmpty() && search.getPrice() != 0) {
+			returnedList = propertyDAO.findByCategoryInAndPriceIn(category, search.getPrice());
+		} else if (search.getCatId() == 0 && !search.getName().isEmpty() && search.getPrice() != 0) {
+			returnedList = propertyDAO.findByNameInAndPriceIn(search.getName(), search.getPrice());
+		} else if (search.getCatId() != 0 && !search.getName().isEmpty() && search.getPrice() != 0) {
+			returnedList = propertyDAO.findByCategoryInAndPriceInAndNameIn(category, search.getPrice(),
+					search.getName());
+		}
+		return returnedList;
 	}
 
 	public List<SavedProperty> getSavedProperties(Client client) {
@@ -76,10 +89,19 @@ public class PropertyServiceImpl implements PropertyService {
 		return savedDAO.findByClient(client);
 	}
 
-
 	public List<Property> getPropertiesByOwner(Owner owner) {
 
 		return propertyDAO.findByOwner(owner);
+	}
+
+	public Property updateProperty(int id, Property property) {
+
+		return propertyDAO.save(property);
+	}
+
+	public void deleteProperty(int propertyId) {
+		propertyDAO.delete(propertyId);
+
 	}
 
 }

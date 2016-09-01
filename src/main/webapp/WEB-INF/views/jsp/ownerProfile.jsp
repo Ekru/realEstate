@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page session="false"%>
+
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -20,10 +20,9 @@
 						<div class="agent-profile">
 							<div class="profile-left">
 							<h4><span>${owner.firstName}</span>  <span>${owner.lastName}</span></h4>
-							<p>Property Owner |<a href="mailto:${owner.email}"><span>${owner.email}</span></a></p>
-							<img src="images/a4.jpg" class="img-responsive" alt="/">
+							<p>Property Owner |<a href="mailto:${owner.email}"><span>${owner.email}</span></a></p>							
 							</div>
-							<div class="profile-right">
+							<div class="profile-left">
 								<h5>My details</h5>
 								<ul>									
 									<li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i> Mobile : <span>${owner.telNumber}</span></li>
@@ -34,53 +33,77 @@
 							<div class="clearfix"></div>
 						</div>
 						<div class="about-me">
-							<h4>About Me</h4>
-							<p>As a fourth generation realtor, I was raised in a family where real estate was the primary occupation. She has a passion for the business and a steadfast dedication to her clients. As a licensed agent in both California and Arizona, I bring over five years of experience to the table and is adept at handling any transaction, regardless of property type or price point.</p>
-							<p>As a fourth generation realtor, I was raised in a family where real estate was the primary occupation. She has a passion for the business and a steadfast dedication to her clients. As a licensed agent in both California and Arizona, I bring over five years of experience to the table and is adept at handling any transaction, regardless of property type or price point.</p>
-							<p>In addition to real estate, Maria’s passions include running and cooking. She lives in Santa Monica, a community she knows intimately. She also does a great deal of business in the Hollywood Hills and West Hollywood.</p>
+							<h4>About Me</h4>		
+							<br/>
+							<br/>
+							<br/>					
 						</div>
-		
+						<div>
+							<button class="btn btn-primary" onclick="#">Add New Property</button>
+							<button class="btn btn-primary" onclick="#">Look Up Lease Applications</button>
+						</div>
 						<div>
 						<h1>My Properties</h1>
 						<table class="table table-striped">
 							<thead>
 								<tr>
-									<th>Category</th>
-									<th>Name</th>
-									<th>Price</th>
-									<th>Area</th>
-									<th>Featured</th>
-									<th>Address</th>
-									<th>Action</th>
+									<th>Category</th> <th>Name</th>	<th>Price</th> <th>Area</th> <th>Featured</th> <th>Address</th>	<th>Action</th>
 								</tr>
 							</thead>
 				
-							<c:forEach var="property" items="${ownerPropertylist}">
+							<c:forEach var="property" items="${propertyList}">
 							    <tr>
 								<td>
-									${property.category}
+									${property.getCategory().getName()}
 								</td>
 								<td>${property.getName()}</td>
 								<td>${property.getPrice()}</td>
 								<td>${property.getArea()}</td>
 								<td>${property.getFeatured()}</td>
-								<td>${property.getAddress().getStreet() cat ', ' cat property.getAddress().getCity() cat ' ' cat property.getAddress().getState() cat ' ' cat property.getAddress().getZip()}</td>
+								<td>${property.getAddress().getStreet()} , ${property.getAddress().getCity()}  , ${property.getAddress().getState()}  , ${property.getAddress().getZip()}</td>
 								<td>
-								  <spring:url value="/property/${property.id}" var="propertyUrl" />
-								  <spring:url value="/property/${property.id}/delete" var="deleteUrl" />
-								  <spring:url value="/users/${property.id}/edit" var="editUrl" />
+								  <spring:url value="/property/${property.getId()}" var="propertyUrl" />
+								  <spring:url value="/property/${property.getId()}/delete" var="deleteUrl" />
+								  <spring:url value="/property/${property.getId()}/edit" var="editUrl" />
 				
-								  <button class="btn btn-info"
-				                                          onclick="location.href='${propertyUrl}'">Show More</button>
-								  <button class="btn btn-primary"
-				                                          onclick="location.href='${editUrl}'">Edit</button>
-								  <button class="btn btn-danger"
-				                                          onclick="this.disabled=true;post('${deleteUrl}')">Delete</button>
+								  <button class="btn btn-info" onclick="location.href='${propertyUrl}'">Show More</button>
+								  <button class="btn btn-primary" onclick="location.href='${editUrl}'">Edit</button>
+								  <button class="btn btn-danger"  onclick="this.disabled=true;post('${deleteUrl}')">Delete</button>
 				                 </td>
 							    </tr>
 							</c:forEach>
 						</table>
-					</div>							
+					</div>		
+					<div>
+						<h1>Lease Applications</h1>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Lease Number</th> <th>Client Id</th> <th>Date</th> <th>Income</th> <th>Status</th> <th>Action</th>
+								</tr>
+							</thead>
+				
+							<c:forEach var="lease" items="${leases}">
+							    <tr>
+								<td>
+									${lease.id}
+								</td>
+								<td>${lease.getClient().id}</td>
+								<td>${lease.getLeaseDate()}</td>
+								<td>${lease.getIncome()}</td>
+								<td>${lease.getLeaseStatus()}</td>								
+								<td>
+								  
+								  <spring:url value="/lease/${lease.id}/reject" var="rejectUrl" />
+								  <spring:url value="/lease/${lease.id}/approve" var="approveUrl" />	
+								  
+								  <button class="btn btn-primary" onclick="location.href='${rejectUrl}'">Reject</button>
+								  <button class="btn btn-danger"  onclick="this.disabled=true;post('${approveUrl}')">Approve</button>
+				                 </td>
+							    </tr>
+							</c:forEach>
+						</table>
+					</div>										
 					</div>
 					<div class="clearfix"></div>
 				</div>

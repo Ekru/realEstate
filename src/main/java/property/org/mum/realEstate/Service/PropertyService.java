@@ -9,7 +9,6 @@ import property.org.mum.realEstate.domain.Property;
 import property.org.mum.realEstate.domain.SavedProperty;
 import property.org.mum.realEstate.domain.Search;
 
-
 public interface PropertyService {
 	List<Property> getAllProperies();
 
@@ -28,7 +27,12 @@ public interface PropertyService {
 	List<Property> getFeaturedProperties();
 
 	List<Property> SearchProperties(Search search);
+
 	List<SavedProperty> getSavedProperties(Client client);
 
 	List<Property> getPropertiesByOwner(Owner owner);
+
+	Property updateProperty(int id, Property property);
+
+	void deleteProperty(int propertyId);
 }

@@ -6,8 +6,16 @@ import org.springframework.stereotype.Component;
 public class Search {
 	private int catId;
 	private String name;
-	private double minPrice;
-	private double maxPrice;
+	private double price;
+
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
 
 	public int getCatId() {
 		return catId;
@@ -25,19 +33,5 @@ public class Search {
 		this.name = name;
 	}
 
-	public double getMinPrice() {
-		return minPrice;
-	}
-
-	public void setMinPrice(double minPrice) {
-		this.minPrice = minPrice;
-	}
-
-	public double getMaxPrice() {
-		return maxPrice;
-	}
-
-	public void setMaxPrice(double maxPrice) {
-		this.maxPrice = maxPrice;
-	}
+	
 }

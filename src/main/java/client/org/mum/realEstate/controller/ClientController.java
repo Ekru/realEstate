@@ -49,7 +49,7 @@ public class ClientController {
 		//model.addAttribute("pageToRender", "clientProfile.jsp");
 		return "redirect:/clientProfile";
 	}
-	@RequestMapping(value="/leaseForm",method=RequestMethod.GET)
+	@RequestMapping(value="/leaseForm/{propertyId}",method=RequestMethod.GET)
 	public String addNewlease(Model model) {
 		
 		

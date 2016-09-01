@@ -14,17 +14,18 @@
 				<div class="container">					
 					<div class="contact-grids">
 						<div class="col-md-8 contact-grid">
-							<h5>Fill out the form and we will get back to you within 24 hours</h5>
-							<p>Nemo enim ips voluptatem voluptas sitsper natuaut odit aut fugit consequuntur magni dolores eosqratio nevoluptatem  amet eism com odictor ut ligulate cot ameti dapibu</p>
-							<form method="post" action="addOwnerSuccess" modelAttribute="owner">
-								<input type="text" name="firstName " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}" required="">
-								<input type="text" name="lastName" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}" required="">
-								<input type="text" name="telNumber" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}" required="">
-								<input type="text" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'email';}" required="">
-								<input type="text"  name="address.street" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Street';}" required="">
-								<input type="text"  name="address.city" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'City';}" required="">
-								<input type="text"  name="address.street" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'State';}" required="">
-								<input type="text"  name="address.city" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Zip';}" required="">
+							<h5>Enter Owner Details</h5>
+							<br/>
+							<form method="post"  modelAttribute="owner">
+								<input type="text" name="firstName " placeholder="First Name" required="">
+								<input type="text" name="lastName" placeholder="Last Name" required="">
+								<input type="text" name="telNumber" placeholder="Mobile Number" required="">
+								<input type="text" name="email" placeholder="Email" required="">
+								<input type="text"  name="address.street" placeholder="Street" required="">
+								<input type="text"  name="address.city" placeholder="City" required="">
+								<input type="text"  name="address.state" placeholder="state" required="">
+								<input type="text"  name="address.zip" placeholder="Zip Code" required="">
+								<br/>
 								<input type="submit" value="Submit" >
 							</form>
 						</div>

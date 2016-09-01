@@ -5,8 +5,14 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
 	<http auto-config="true">
+<<<<<<< HEAD
 	<csrf disabled="true"/>
 		<intercept-url pattern="/clientProfile" access="hasRole('ROLE_USER')" />
+=======
+	
+		<intercept-url pattern="/clientProfile" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/property/save/*" access="hasRole('ROLE_USER')" />
+>>>>>>> 5391dc3388f7fa6041d050299004696f009c202b
 		
 		<form-login 
 		    login-page="/login" 

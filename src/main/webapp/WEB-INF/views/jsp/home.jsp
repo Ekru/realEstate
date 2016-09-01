@@ -54,40 +54,21 @@
   <form:input  path="name" class="form-control"  />
 </div>
 					</div>
-					
+					<div class="col-md-3 place-grid">
+					<h5>The Price </h5>
+					<div class="form-group">
+  <label for="name">Price:</label>
+  <form:input  path="price" class="form-control"  />
+</div>
+					</div>
 					
 					<div class="clearfix"></div>
 				</div>
 				<div class="place-grids">
 					
 					
-					<div class="col-md-2 place-grid1">
-						<h5>Min Price</h5>
-						<form:select path="minPrice" >
-							<form:option value="0">any</form:option>
-							<form:option value="500">$500</form:option>
-							<form:option value="1000">$1000</form:option>
-							<form:option value="2000">$2000</form:option>
-							<form:option value="3000">$3000</form:option>
-							<form:option value="4000">$4000</form:option>
-							<form:option value="5000">$5000</form:option>
-							<form:option value="75000">$75000</form:option>
-							<form:option value="10000">$10000</form:option>
-						</form:select>
-					</div>
-					<div class="col-md-2 place-grid1">
-						<h5>Max Price</h5>
-						<form:select class="sel"  path="maxPrice">
-							<form:option value="0">any</form:option>
-							<form:option value="1000">$1000</form:option>
-							<form:option value="2000">$2000</form:option>
-							<form:option value="3000">$3000</form:option>
-							<form:option value="4000">$4000</form:option>
-							<form:option value="5000">$5000</form:option>
-							<form:option value="75000">$75000</form:option>
-							<form:option value="10000">$10000</form:option>
-						</form:select>
-					</div>
+					
+					
 					<div class="col-md-4 search">
 				
 						<input type="submit" value="Search">

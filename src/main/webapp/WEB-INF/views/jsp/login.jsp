@@ -3,7 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- login -->
+<<<<<<< HEAD
 <div  role="dialog">
+=======
+<div role="dialog">
+>>>>>>> 5391dc3388f7fa6041d050299004696f009c202b
 	<div class="modal-dialog" role="document">
 		<div class="modal-content modal-info">
 			<div class="modal-header">
@@ -27,6 +31,7 @@
 								action="<c:url value='/j_spring_security_check' />"
 								method='POST'>
 								<h3>Login</h3>
+								 <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 								<input type="text" name="email" value="Enter your Email"
 									onfocus="this.value = '';"
 									onblur="if (this.value == '') {this.value = 'Enter your Email';}"
