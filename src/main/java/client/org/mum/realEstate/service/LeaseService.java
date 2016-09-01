@@ -14,7 +14,7 @@ public interface LeaseService {
 	List<Lease> findAll();
 	List<Lease> findByClient(Client client);
 
-	//Lease findById(Long id);
+	Lease findById(Long id);
 
 	Lease displayDetail(Long id);
 	public void  updateStatus(Lease lease);

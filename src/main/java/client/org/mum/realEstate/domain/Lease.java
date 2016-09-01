@@ -39,6 +39,10 @@ public class Lease {
 	private Date leaseDate;
 	private LeaseStatus leaseStatus;
 
+	public void setProperty(Property property) {
+		this.property = property;
+	}
+
 	public Lease() {
 	}
 	

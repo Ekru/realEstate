@@ -13,6 +13,7 @@ import client.org.mum.realEstate.domain.Lease;
 import client.org.mum.realEstate.service.ClientService;
 import client.org.mum.realEstate.service.LeaseService;
 import property.org.mum.realEstate.Service.PropertyService;
+import property.org.mum.realEstate.domain.Property;
 import property.org.mum.realEstate.domain.SavedProperty;
 
 @Controller
@@ -36,9 +37,13 @@ public class ClientProfileController {
 		model.addAttribute("pageToRender", "clientProfile.jsp");
 		return "template";
 	}
-	@RequestMapping("/lease/{leaseId}")
-	public String getLease(@PathVariable int leaseId,Model model){
-		//Lease lease=leaseService.
+	@RequestMapping("/Client/lease/{leaseId}")
+	public String getLease(@PathVariable long leaseId,Model model){
+		Lease lease=leaseService.findById(leaseId);
+		List<Property> featuredProperties = pService.getFeaturedProperties();
+		model.addAttribute("featuredProperties", featuredProperties);
+		model.addAttribute("lease",lease);
+		
 		model.addAttribute("pageToRender","lease.jsp");
 		return "template";
 	}
