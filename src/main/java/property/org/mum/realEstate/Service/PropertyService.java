@@ -3,6 +3,7 @@ package property.org.mum.realEstate.Service;
 import java.util.List;
 
 import client.org.mum.realEstate.domain.Client;
+import owner.org.mum.realEstate.domain.Owner;
 import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
 import property.org.mum.realEstate.domain.SavedProperty;
@@ -28,4 +29,6 @@ public interface PropertyService {
 
 	List<Property> SearchProperties(Search search);
 	List<SavedProperty> getSavedProperties(Client client);
+
+	List<Property> getPropertiesByOwner(Owner owner);
 }

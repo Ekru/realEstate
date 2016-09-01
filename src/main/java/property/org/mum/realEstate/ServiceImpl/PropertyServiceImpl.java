@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import client.org.mum.realEstate.domain.Client;
+import owner.org.mum.realEstate.domain.Owner;
 import property.org.mum.realEstate.DAO.CategoryDAO;
 import property.org.mum.realEstate.DAO.PropertyDAO;
 import property.org.mum.realEstate.DAO.SavedPropertyDAO;
@@ -25,60 +26,56 @@ public class PropertyServiceImpl implements PropertyService {
 	@Autowired
 	private SavedPropertyDAO savedDAO;
 
-	
 	public List<Property> getAllProperies() {
 		return propertyDAO.findAll();
 	}
 
-	
 	public List<Property> getProperitiesByCategory(Category category) {
 		return propertyDAO.findByCategory(category);
 	}
 
-	
 	public void addNewProperty(Property property) {
 		propertyDAO.save(property);
 
 	}
 
-	
 	public void deleteCategory(Category category) {
 		categoryDAO.delete(category);
 
 	}
 
-	
 	public void addPropertyToSaved(SavedProperty sProperty) {
-		// savedDAO.saveAndFlush(sProperty);
+		savedDAO.saveAndFlush(sProperty);
 
 	}
 
-	
 	public Property getPropertyById(int id) {
 		return propertyDAO.findOne(id);
 	}
 
-	
 	public List<Property> SearchProperties(Category category, double minPrice, double maxPrice, String name) {
 		List<Property> properties = propertyDAO.findAll();
 		return properties;
 	}
 
-	
 	public List<Property> getFeaturedProperties() {
 		return propertyDAO.findByFeatured(true);
 	}
 
-	
 	public List<Property> SearchProperties(Search search) {
 		// return propertyDAO.searchProperty(search);
 		return propertyDAO.findAll();
 	}
 
-	
 	public List<SavedProperty> getSavedProperties(Client client) {
 
 		return savedDAO.findByClient(client);
+	}
+
+	@Override
+	public List<Property> getPropertiesByOwner(Owner owner) {
+
+		return propertyDAO.findByOwner(owner);
 	}
 
 }
