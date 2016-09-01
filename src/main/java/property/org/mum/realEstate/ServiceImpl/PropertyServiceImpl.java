@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import client.org.mum.realEstate.domain.Client;
 import property.org.mum.realEstate.DAO.CategoryDAO;
 import property.org.mum.realEstate.DAO.PropertyDAO;
 import property.org.mum.realEstate.DAO.SavedPropertyDAO;
@@ -14,7 +15,6 @@ import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
 import property.org.mum.realEstate.domain.SavedProperty;
 import property.org.mum.realEstate.domain.Search;
-
 
 @Service
 public class PropertyServiceImpl implements PropertyService {
@@ -73,6 +73,12 @@ public class PropertyServiceImpl implements PropertyService {
 	public List<Property> SearchProperties(Search search) {
 		// return propertyDAO.searchProperty(search);
 		return propertyDAO.findAll();
+	}
+
+	@Override
+	public List<SavedProperty> getSavedProperties(Client client) {
+
+		return savedDAO.findByClient(client);
 	}
 
 }

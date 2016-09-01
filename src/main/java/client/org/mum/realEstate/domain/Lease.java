@@ -20,6 +20,10 @@ public class Lease {
 	@GeneratedValue
 	private long leaseId;
 
+	public void setLeaseId(long leaseId) {
+		this.leaseId = leaseId;
+	}
+
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "clientNo")
 	private Client client;
