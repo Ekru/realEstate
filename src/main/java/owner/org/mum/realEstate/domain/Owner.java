@@ -15,11 +15,12 @@ import property.org.mum.realEstate.domain.Property;
 public class Owner {
 	@Id 
 	@GeneratedValue
-	private int id;
+	private Integer id;
 	private String firstName;
 	private String lastName;	
 	private String telNumber;
 	private String email;
+	private String password;
 	@OneToOne
 	private Address address;
 	
@@ -28,6 +29,12 @@ public class Owner {
 	
 	public Owner(){
 		
+	}
+    public Owner(String firstName,String lastName,String email,String password){
+		this.firstName=firstName;
+		this.lastName=lastName;
+		this.email=email;
+		this.password=password;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -66,6 +73,16 @@ public class Owner {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+	//Check if this is for New of Update
+		public boolean isNew() {
+			return (this.id == null);
+		}
+		public String getPassword() {
+			return password;
+		}
+		public void setPassword(String password) {
+			this.password = password;
+		}
+
 	
 }

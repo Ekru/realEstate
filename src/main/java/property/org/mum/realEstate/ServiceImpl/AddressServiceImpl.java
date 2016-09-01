@@ -13,25 +13,25 @@ import property.org.mum.realEstate.domain.Address;
 public class AddressServiceImpl implements AddressService {
 	@Autowired
 private AddressDAO addressDAO;
-	@Override
+	
 	public void saveAddress(Address address) {
 		// TODO Auto-generated method stub
 		addressDAO.save(address);
 	}
 
-	@Override
+	
 	public void deleteAddress(int id) {
 		// TODO Auto-generated method stub
 		addressDAO.delete(id);;
 	}
 
-	@Override
+	
 	public Address getAddressByZip(String zip) {
 		// TODO Auto-generated method stub
 		return addressDAO.getOne(Integer.parseInt(zip));
 	}
 
-	@Override
+
 	public List<Address> getALLAddresses() {
 		// TODO Auto-generated method stub
 		return addressDAO.findAll();

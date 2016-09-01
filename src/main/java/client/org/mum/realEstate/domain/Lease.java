@@ -12,12 +12,17 @@ import javax.persistence.OneToOne;
 
 import property.org.mum.realEstate.domain.Address;
 import property.org.mum.realEstate.domain.Property;
+import client.org.mum.realEstate.domain.LeaseStatus;
 
 @Entity
 public class Lease {
 	@Id
 	@GeneratedValue
 	private long leaseId;
+
+	public void setLeaseId(long leaseId) {
+		this.leaseId = leaseId;
+	}
 
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "clientNo")
@@ -33,6 +38,10 @@ public class Lease {
 	private int income;
 	private Date leaseDate;
 	private LeaseStatus leaseStatus;
+
+	public void setProperty(Property property) {
+		this.property = property;
+	}
 
 	public Lease() {
 	}

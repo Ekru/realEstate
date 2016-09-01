@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import client.org.mum.realEstate.domain.Client;
+import owner.org.mum.realEstate.domain.Owner;
 import property.org.mum.realEstate.DAO.CategoryDAO;
 import property.org.mum.realEstate.DAO.PropertyDAO;
 import property.org.mum.realEstate.DAO.SavedPropertyDAO;
@@ -13,6 +15,7 @@ import property.org.mum.realEstate.Service.PropertyService;
 import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
 import property.org.mum.realEstate.domain.SavedProperty;
+import property.org.mum.realEstate.domain.Search;
 
 @Service
 public class PropertyServiceImpl implements PropertyService {
@@ -23,48 +26,56 @@ public class PropertyServiceImpl implements PropertyService {
 	@Autowired
 	private SavedPropertyDAO savedDAO;
 
-	@Override
 	public List<Property> getAllProperies() {
 		return propertyDAO.findAll();
 	}
 
-	@Override
 	public List<Property> getProperitiesByCategory(Category category) {
 		return propertyDAO.findByCategory(category);
 	}
 
-	@Override
 	public void addNewProperty(Property property) {
 		propertyDAO.save(property);
 
 	}
 
-	@Override
 	public void deleteCategory(Category category) {
 		categoryDAO.delete(category);
 
 	}
 
-	@Override
 	public void addPropertyToSaved(SavedProperty sProperty) {
-		//savedDAO.saveAndFlush(sProperty);
+		savedDAO.saveAndFlush(sProperty);
 
 	}
 
-	@Override
 	public Property getPropertyById(int id) {
 		return propertyDAO.findOne(id);
 	}
 
-	@Override
 	public List<Property> SearchProperties(Category category, double minPrice, double maxPrice, String name) {
 		List<Property> properties = propertyDAO.findAll();
 		return properties;
 	}
 
-	@Override
 	public List<Property> getFeaturedProperties() {
 		return propertyDAO.findByFeatured(true);
+	}
+
+	public List<Property> SearchProperties(Search search) {
+		// return propertyDAO.searchProperty(search);
+		return propertyDAO.findAll();
+	}
+
+	public List<SavedProperty> getSavedProperties(Client client) {
+
+		return savedDAO.findByClient(client);
+	}
+
+	@Override
+	public List<Property> getPropertiesByOwner(Owner owner) {
+
+		return propertyDAO.findByOwner(owner);
 	}
 
 }

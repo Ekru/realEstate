@@ -1,5 +1,6 @@
 package owner.org.mum.realEstate.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import client.org.mum.realEstate.domain.Client;
@@ -17,10 +19,12 @@ import client.org.mum.realEstate.domain.Lease;
 import client.org.mum.realEstate.service.ClientService;
 import owner.org.mum.realEstate.domain.Owner;
 import owner.org.mum.realEstate.service.OwnerService;
+import property.org.mum.realEstate.Service.AddressService;
 import property.org.mum.realEstate.Service.PropertyService;
 import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
 @Controller
+//@SessionAttributes("ownerPropertylist")
 public class OwnerController {
 
 	@Autowired
@@ -29,25 +33,29 @@ public class OwnerController {
 	//private ClientService clientService;
 	@Autowired
 	private OwnerService ownerService;
+	@Autowired
+	private AddressService addressService;
+	
+	//private List<Property> ownerPropertylist=new ArrayList<Property>();
 	
 	@RequestMapping(value="/addOwner",method=RequestMethod.GET)
-	public String addNewOwner(Model model) {
+	public String addNewOwner(Model model) {		
 		
-		//ownerService.addNewOwner(owner);
 		//model.addAttribute("msg", "Owner added successfully!");
 		model.addAttribute("pageToRender", "addOwner.jsp");
 		return "template";
 	}
-	@RequestMapping(value="/addOwnerSuccess",method=RequestMethod.POST)
+	@RequestMapping(value="/ownerProfile",method=RequestMethod.POST)
 	public String submitOwner(@ModelAttribute("owner") Owner owner,BindingResult result,Model model) {
 		
 		if(result.hasErrors()){
 			model.addAttribute("pageToRender", "addOwner.jsp");
 			return "template";
 		}
-		ownerService.addNewOwner(owner);
-		//model.addAttribute("msg", "Owner added successfully!");
-		model.addAttribute("pageToRender", "addOwnerSuccess.jsp");
+		addressService.saveAddress(owner.getAddress());
+		ownerService.addNewOwner(owner);		
+		//model.addAttribute("ownerPropertylist", ownerPropertylist);
+		model.addAttribute("pageToRender", "ownerProfile.jsp");
 		return "template";
 	}
 	@RequestMapping(value="/owners/{id}/edit")
@@ -96,16 +104,23 @@ public class OwnerController {
 		model.addAttribute("pageToRender", "addProperty.jsp");
 		return "template";
 	}
-	@RequestMapping(value="/addProperty",method=RequestMethod.POST)
+	@RequestMapping(value="addProperty/ownerProfile",method=RequestMethod.POST)
 	public String submitProperty(@ModelAttribute("property") Property property,BindingResult result,Model model) {
 		
 		if(result.hasErrors()){
-			model.addAttribute("pageToRender", "addOwner.jsp");
+			model.addAttribute("pageToRender", "addProperty.jsp");
 			return "template";
 		}
+		/*if(property.getAddress().isNew()){
+			
+		}*/
+		addressService.saveAddress(property.getAddress());
 		propertyService.addNewProperty(property);
 		//model.addAttribute("msg", "Owner added successfully!");
-		model.addAttribute("pageToRender", "addPropertySuccess.jsp");
+		List<Property> ownerPropertylist =new ArrayList<Property>();
+		ownerPropertylist.add(property);
+	    model.addAttribute("ownerPropertylist", ownerPropertylist);
+		model.addAttribute("pageToRender", "ownerProfile.jsp");
 		return "template";
 	}
 	@RequestMapping(value="/properties/{id}/edit")
