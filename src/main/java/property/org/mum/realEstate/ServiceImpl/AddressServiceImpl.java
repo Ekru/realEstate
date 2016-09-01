@@ -22,7 +22,7 @@ public class AddressServiceImpl implements AddressService {
 	public void deleteAddress(int id) {
 
 		addressDAO.delete(id);
-		;
+		
 	}
 
 	public Address getAddressByZip(String zip) {

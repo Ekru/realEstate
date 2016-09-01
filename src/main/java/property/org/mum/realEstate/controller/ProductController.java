@@ -43,6 +43,6 @@ public class ProductController {
 		Property property=pService.getPropertyById(id);
 		SavedProperty savedProperty=new SavedProperty(new Date(), property, client);
 		pService.addPropertyToSaved(savedProperty);
-		return "redirect:/clientProfile";
+		return "redirect:/";
 	}
 }
