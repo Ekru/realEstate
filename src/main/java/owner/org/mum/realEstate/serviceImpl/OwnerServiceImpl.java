@@ -2,6 +2,10 @@ package owner.org.mum.realEstate.serviceImpl;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,44 +17,47 @@ import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
 @Service
 public class OwnerServiceImpl implements OwnerService {
+	
+	@PersistenceContext
+	private EntityManager em;
 	@Autowired
 	private OwnerDAO ownerDAO;
 	
-	@Override
+	
 	public void addNewOwner(Owner owner) {
-		// TODO Auto-generated method stub
-		ownerDAO.addNewOwner(owner);
+		
+		ownerDAO.save(owner);
 		
 	}
 
-	@Override
+	
 	public void deleteOwnerById(int ownerId) {
-		// TODO Auto-generated method stub
-		ownerDAO.deleteOwnerById(ownerId);
+		
+		ownerDAO.delete(ownerId);
 	}
 
-	@Override
+	
 	public void editOwnerById(int id) {
-		// TODO Auto-generated method stub
-		ownerDAO.editOwnerById(id);
+		
+		//ownerDAO.e(id);
 	}
 
-	@Override
+	
 	public Owner getOwnerById(int id) {
-		// TODO Auto-generated method stub
-		return ownerDAO.getOwnerById(id);
+		
+		return ownerDAO.findOne(id);
 	}
 
-	@Override
+	
 	public Owner getOwnerByName(String name) {
-		// TODO Auto-generated method stub
-		return ownerDAO.getOwnerByName(name);
+		TypedQuery<Owner> query = em.createQuery("select o from Owner o where o.lastName = ?1", Owner.class);
+		query.setParameter(1, name);
+		return query.getSingleResult();
 	}
 
-	@Override
-	public List<Owner> getOwners() {
-		// TODO Auto-generated method stub
-		return ownerDAO.getOwners();
+	
+	public List<Owner> getOwners() {		
+		return ownerDAO.findAll();
 	}
 
 	}
