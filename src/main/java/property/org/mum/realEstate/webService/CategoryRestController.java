@@ -28,6 +28,11 @@ public class CategoryRestController {
 		cService.AddnewCategory(category);
 	}
 
+	@RequestMapping(value = "/Category/{categoryId}", method = RequestMethod.GET)
+	public Category getOneCategory(@PathVariable("categoryId") String categoryId) {
+		return cService.getCategoryById(Integer.parseInt(categoryId));
+	}
+
 	@RequestMapping(value = "/Category/{categoryId}", method = RequestMethod.PUT)
 	public Category Update(@PathVariable int categoryId, @RequestBody Category category) {
 		return cService.update(category);
