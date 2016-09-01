@@ -23,7 +23,7 @@
 							<p>Property Owner |<a href="mailto:${owner.email}"><span>${owner.email}</span></a></p>							
 							</div>
 							<div class="profile-left">
-								<h5>My details</h5>
+								<h5>My details</h5> <br/>
 								<ul>									
 									<li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i> Mobile : <span>${owner.telNumber}</span></li>
 									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i> <a href="mailto:{owner.email}"><span>${owner.email}</span></a></li>
@@ -92,13 +92,9 @@
 								<td>${lease.getLeaseDate()}</td>
 								<td>${lease.getIncome()}</td>
 								<td>${lease.getLeaseStatus()}</td>								
-								<td>
-								  
-								  <spring:url value="/lease/${lease.id}/reject" var="rejectUrl" />
-								  <spring:url value="/lease/${lease.id}/approve" var="approveUrl" />	
-								  
-								  <button class="btn btn-primary" onclick="location.href='${rejectUrl}'">Reject</button>
-								  <button class="btn btn-danger"  onclick="this.disabled=true;post('${approveUrl}')">Approve</button>
+								<td>								  
+								  <spring:url value="/lease/${lease.id}" var="showUrl" />								  
+								  <button class="btn btn-danger"  onclick="this.disabled=true;post('${showUrl}')">Show More</button>
 				                 </td>
 							    </tr>
 							</c:forEach>
