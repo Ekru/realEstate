@@ -15,7 +15,7 @@ public class CategoryserviceImpl implements CategoryService {
 	private CategoryDAO categoryDAO;
 
 	public List<Category> getAllCategories() {
-		// TODO Auto-generated method stub
+
 		return categoryDAO.findAll();
 	}
 

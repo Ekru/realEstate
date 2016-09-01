@@ -63,7 +63,7 @@ public class PropertyServiceImpl implements PropertyService {
 	}
 
 	public List<Property> SearchProperties(Search search) {
-		List<Property> returnedList = new ArrayList();
+		List<Property> returnedList = new ArrayList<Property>();
 		Category category = new Category();
 		if (search.getCatId() != 0)
 			category = categoryDAO.findOne(search.getCatId());
@@ -95,7 +95,7 @@ public class PropertyServiceImpl implements PropertyService {
 	}
 
 	public Property updateProperty(int id, Property property) {
-		// TODO Auto-generated method stub
+
 		return propertyDAO.save(property);
 	}
 
