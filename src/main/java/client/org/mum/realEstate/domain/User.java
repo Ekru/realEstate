@@ -8,6 +8,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "User")
 public class User {
+	@Id
+	@GeneratedValue
+	int userID;
+	String firstName;
+	String lastName;
+	String userPassword;
+	String password;
+
+	public User() {
+
+	}
 
 	public int getUserID() {
 		return userID;
@@ -49,16 +60,6 @@ public class User {
 		this.password = password;
 	}
 
-	@Id
-	@GeneratedValue
-	int userID;
-	String firstName;
-	String lastName;
-	String userPassword;
-	String password;
-
-	public User() {
-
-	}
+	
 
 }

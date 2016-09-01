@@ -51,7 +51,7 @@ public List<Lease> findAll() {
 }
 
 
-@Override
+
 public void updateStatus(Lease lease) {
 	
 	if(lease.getIncome() > 27000){
@@ -64,6 +64,13 @@ public void updateStatus(Lease lease) {
 		lease.setLeaseStatus(LeaseStatus.PENDING);
 	}
 	
+}
+
+
+@Override
+public List<Lease> findByClient(Client client) {
+	// TODO Auto-generated method stub
+	return leaseDAO.findByClient(client);
 }
 
 
