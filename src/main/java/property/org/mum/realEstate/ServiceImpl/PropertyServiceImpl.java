@@ -25,57 +25,57 @@ public class PropertyServiceImpl implements PropertyService {
 	@Autowired
 	private SavedPropertyDAO savedDAO;
 
-	@Override
+	
 	public List<Property> getAllProperies() {
 		return propertyDAO.findAll();
 	}
 
-	@Override
+	
 	public List<Property> getProperitiesByCategory(Category category) {
 		return propertyDAO.findByCategory(category);
 	}
 
-	@Override
+	
 	public void addNewProperty(Property property) {
 		propertyDAO.save(property);
 
 	}
 
-	@Override
+	
 	public void deleteCategory(Category category) {
 		categoryDAO.delete(category);
 
 	}
 
-	@Override
+	
 	public void addPropertyToSaved(SavedProperty sProperty) {
 		// savedDAO.saveAndFlush(sProperty);
 
 	}
 
-	@Override
+	
 	public Property getPropertyById(int id) {
 		return propertyDAO.findOne(id);
 	}
 
-	@Override
+	
 	public List<Property> SearchProperties(Category category, double minPrice, double maxPrice, String name) {
 		List<Property> properties = propertyDAO.findAll();
 		return properties;
 	}
 
-	@Override
+	
 	public List<Property> getFeaturedProperties() {
 		return propertyDAO.findByFeatured(true);
 	}
 
-	@Override
+	
 	public List<Property> SearchProperties(Search search) {
 		// return propertyDAO.searchProperty(search);
 		return propertyDAO.findAll();
 	}
 
-	@Override
+	
 	public List<SavedProperty> getSavedProperties(Client client) {
 
 		return savedDAO.findByClient(client);

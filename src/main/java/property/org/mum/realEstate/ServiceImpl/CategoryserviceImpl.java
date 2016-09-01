@@ -15,13 +15,13 @@ public class CategoryserviceImpl implements CategoryService {
 	@Autowired
 	private CategoryDAO categoryDAO;
 
-	@Override
+	
 	public List<Category> getAllCategories() {
 		// TODO Auto-generated method stub
 		return categoryDAO.findAll();
 	}
 
-	@Override
+	
 	public Category getCategoryById(int id) {
 		return categoryDAO.findOne(id);
 	}
