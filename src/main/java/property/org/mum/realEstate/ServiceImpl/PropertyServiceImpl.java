@@ -63,7 +63,11 @@ public class PropertyServiceImpl implements PropertyService {
 	}
 
 	public List<Property> SearchProperties(Search search) {
-		// return propertyDAO.searchProperty(search);
+		String name=search.getName();
+		Category category=categoryDAO.findOne(search.getCatId());
+		double minPrice=search.getMinPrice();
+		double maxPrice=search.getMaxPrice();
+		// return propertyDAO.searchProperty(category,);
 		return propertyDAO.findAll();
 	}
 
@@ -72,7 +76,7 @@ public class PropertyServiceImpl implements PropertyService {
 		return savedDAO.findByClient(client);
 	}
 
-	@Override
+
 	public List<Property> getPropertiesByOwner(Owner owner) {
 
 		return propertyDAO.findByOwner(owner);
