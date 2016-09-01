@@ -13,7 +13,6 @@ import client.org.mum.realEstate.domain.Lease;
 import client.org.mum.realEstate.domain.LeaseStatus;
 import client.org.mum.realEstate.service.ClientService;
 import client.org.mum.realEstate.service.LeaseService;
-import owner.org.mum.realEstate.domain.Owner;
 import property.org.mum.realEstate.Service.AddressService;
 import property.org.mum.realEstate.Service.PropertyService;
 
@@ -35,7 +34,7 @@ public class ClientController {
 		model.addAttribute("pageToRender", "register.jsp");
 		return "template";
 	}
-	@RequestMapping(value="/client",method=RequestMethod.POST)
+	@RequestMapping(value="/clientProfileAction",method=RequestMethod.POST)
 	public String submitclient(@ModelAttribute("client") Client client,BindingResult result,Model model) {
 		
 		if(result.hasErrors()){
@@ -57,7 +56,7 @@ public class ClientController {
 		model.addAttribute("pageToRender", "leaseForm.jsp");
 		return "template";
 	}
-	@RequestMapping(value="/lease",method=RequestMethod.POST)
+	@RequestMapping(value="/leaseAction",method=RequestMethod.POST)
 	public String submitLease(@ModelAttribute("lease") Lease lease,BindingResult result,Model model) {
 		
 		if(result.hasErrors()){
@@ -71,7 +70,11 @@ public class ClientController {
 		leaseService.save(lease);
 		leaseService.updateStatus(lease);
 		
-		//model.addAttribute("pageToRender", "lease.jsp");
+//		model.addAttribute("pageToRender", "/leasetest.jsp");
+//		return "template";
 		return "redirect:/clientProfile";
 	}
+	
+		
+		
 }

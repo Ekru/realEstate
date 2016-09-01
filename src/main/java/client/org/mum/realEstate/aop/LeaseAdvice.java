@@ -4,6 +4,8 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 import client.org.mum.realEstate.domain.Client;
 import client.org.mum.realEstate.domain.Lease;
@@ -31,6 +33,7 @@ public class LeaseAdvice {
 	
 
 	@After("execution(* client.org.mum.realEstate.controller.ClientController.submitLease(..))")
+	//+"args(lease, result, model)")
 	public void notificationAdvice(JoinPoint joinpoint){
 		Object[] args = joinpoint.getArgs();
         Lease lease = (Lease) args[0];

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- login -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+<div  role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content modal-info">
 			<div class="modal-header">

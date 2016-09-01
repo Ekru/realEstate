@@ -27,8 +27,8 @@ public class ClientProfileController {
 
 	@RequestMapping("/clientProfile")
 	public String getClientProfile(Model model) {
-		long clientId = 1;
-		Client client = clientService.findClient(clientId);
+		long clientNo = 1;
+		Client client = clientService.findClient(clientNo);
 		List<Lease> leases = leaseService.findByClient(client);
 		List<SavedProperty> savedProperties = pService.getSavedProperties(client);
 		model.addAttribute("savedProperties", savedProperties);

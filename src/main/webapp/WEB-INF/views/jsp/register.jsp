@@ -8,7 +8,7 @@
 </head>
 <body>
 <!-- Register -->
-			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+			<div >
 				<div class="modal-dialog" role="document">
 					<div class="modal-content modal-info">
 						<div class="modal-header">
@@ -18,7 +18,7 @@
 							<div class="login-grids">
 								<div class="login">
 									<div class="login-right">
-										<form action="client"  method="post">
+										<form action="clientProfileAction"  method="post">
 											<h3>Register </h3>
 											<input type="text" name="firstName" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}" required="">
 											<input type="text" name="lastName" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}" required="">

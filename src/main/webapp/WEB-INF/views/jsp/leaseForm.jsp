@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!---banner--->
 		<div class="banner-section">
 			<div class="container">
@@ -15,7 +16,7 @@
 						<div class="col-md-8 contact-grid">
 							<h5>Fill out the form and we will get back to you within 24 hours</h5>
 							
-							<form action="lease"  method="post">
+							<form action="leaseAction "  method="post">
 							<input type="text" name="client.firstName" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}" required="">
 											<input type="text" name="client.lastName" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}" required="">
 											<input type="text" name="client.email"value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">	
@@ -28,6 +29,8 @@
 											<input type="text" name="leaseDate"value="Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Date';}" required="">
 							
 								<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Special Instruction/Comments...';}" required="">Special Instruction/Comments...</textarea>
+								
+								<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 								<input type="submit" value="Apply Lease" >
 							</form>
 						</div>
