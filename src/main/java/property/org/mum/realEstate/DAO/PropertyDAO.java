@@ -17,11 +17,20 @@ public interface PropertyDAO extends JpaRepository<Property, Integer> {
 
 	public List<Property> findByCategory(Category category);
 
-	 public List<Property> findByOwner(Owner owner);
+	public List<Property> findByOwner(Owner owner);
 
 	// public Property findOne(int id);
 	public List<Property> findByFeatured(boolean featured);
 
-	//@Query("select p from Property p where p.name like %:search.name% and p.category.id=:search.catId and p.price BETWEEN :search.minPrice AND :search.maxPrice")
-	//public List<Property> searchProperty(Search search);
+	public List<Property> findByName(String name);
+
+	public List<Property> findByPrice(double price);
+
+	public List<Property> findByCategoryInAndPriceIn(Category category, double price);
+
+	public List<Property> findByCategoryInAndNameIn(Category category, String name);
+
+	public List<Property> findByNameInAndPriceIn(String name, double price);
+
+	public List<Property> findByCategoryInAndPriceInAndNameIn(Category category, double price, String name);
 }
