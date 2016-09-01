@@ -47,8 +47,8 @@ public class ClientController {
 		
 		
 		
-		model.addAttribute("pageToRender", "client.jsp");
-		return "template";
+		//model.addAttribute("pageToRender", "clientProfile.jsp");
+		return "redirect:/clientProfile";
 	}
 	@RequestMapping(value="/leaseForm",method=RequestMethod.GET)
 	public String addNewlease(Model model) {
@@ -71,7 +71,7 @@ public class ClientController {
 		leaseService.save(lease);
 		leaseService.updateStatus(lease);
 		
-		model.addAttribute("pageToRender", "lease.jsp");
-		return "template";
+		//model.addAttribute("pageToRender", "lease.jsp");
+		return "redirect:/clientProfile";
 	}
 }

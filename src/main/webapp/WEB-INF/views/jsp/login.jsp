@@ -1,36 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- login -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content modal-info">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						</div>
-						<div class="modal-body real-spa">
-							<div class="login-grids">
-								<div class="login">
-									
-									<div class="login-right">
-										<form>
-											<h3>Login</h3>
-											<input type="text" value="Enter your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
-											<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
-											<h4><a href="#">Forgot password</a> / <a href="#">Create new password</a></h4>
-											<div class="single-bottom">
-												<input type="checkbox"  id="brand" value="">
-												<label for="brand"><span></span>Remember Me.</label>
-											</div>
-											<input type="submit" value="Login Now" >
-										</form>
-									</div>
-																
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content modal-info">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body real-spa">
+				<div class="login-grids">
+					<div class="login">
+
+						<div class="login-right">
+							<c:if test="${not empty error}">
+								<div class="error">${error}</div>
+							</c:if>
+							<c:if test="${not empty msg}">
+								<div class="msg">${msg}</div>
+							</c:if>
+							<form name='loginForm'
+								action="<c:url value='/j_spring_security_check' />"
+								method='POST'>
+								<h3>Login</h3>
+								<input type="text" name="email" value="Enter your Email"
+									onfocus="this.value = '';"
+									onblur="if (this.value == '') {this.value = 'Enter your Email';}"
+									required=""> <input type="password" name="password"
+									value="Password" onfocus="this.value = '';"
+									onblur="if (this.value == '') {this.value = 'Password';}"
+									required="">
+								<h4>
+									<a href="#">Forgot password</a> / <a href="#">Create new
+										password</a>
+								</h4>
+								<div class="single-bottom">
+									<input type="checkbox" id="brand" value=""> <label
+										for="brand"><span></span>Remember Me.</label>
 								</div>
-								<p>By logging in you agree to our <a href="#">Terms</a> and <a href="#">Conditions</a> and <a href="#">Privacy Policy</a></p>
-							</div>
+								<input type="submit" value="Login Now">
+							</form>
 						</div>
+
 					</div>
+					<p>
+						By logging in you agree to our <a href="#">Terms</a> and <a
+							href="#">Conditions</a> and <a href="#">Privacy Policy</a>
+					</p>
 				</div>
 			</div>
-			<!-- //login -->
+		</div>
+	</div>
+</div>
+<!-- //login -->

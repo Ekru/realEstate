@@ -1,11 +1,12 @@
 package client.org.mum.realEstate.DAO;
 
-import org.hibernate.SessionFactory;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserDAO {
-	
-	 SessionFactory getSessionFactory();
-	
+import client.org.mum.realEstate.domain.User;
 
-	 void setSessionFactory(SessionFactory sessionFactory); 
+public class UserDAO {
+
+	public UserDAO() {
+
+	}
 }

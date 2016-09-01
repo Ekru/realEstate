@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	@GeneratedValue
-	int userID;
+	long userID;
 	String firstName;
 	String lastName;
 	String userPassword;
@@ -20,11 +20,11 @@ public class User {
 
 	}
 
-	public int getUserID() {
+	public long getUserID() {
 		return userID;
 	}
 
-	public void setUserID(int userID) {
+	public void setUserID(long userID) {
 		this.userID = userID;
 	}
 

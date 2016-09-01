@@ -30,7 +30,7 @@
 											
 											<input type="text" name="address.zip"value="Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Zip';}" required="">
 												
-											<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
+											<input type="password" name="password"value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
 											
 											<input type="submit" value="Register Now" >
 										</form>

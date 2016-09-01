@@ -17,7 +17,16 @@ public class Client {
 		private String firstName; 
 		private String lastName;
 		private String email; 
-		private String phone; 
+		private String phone;
+		private String password;
+		public String getPassword() {
+			return password;
+		}
+
+		public void setPassword(String password) {
+			this.password = password;
+		}
+
 		@OneToOne
 		@JoinColumn(name = "id")
 		private Address address;
