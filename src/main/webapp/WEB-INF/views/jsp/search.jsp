@@ -39,6 +39,7 @@
 													<li><span> ${property.getArea()} </span>Area</li>
 													
 													<li><span> <a href="<spring:url value='/leaseForm/${property.getId()}'/>">Apply</a> </span>Write Lease</li>
+													<li><span> <a href="<spring:url value='/property/save/${property.getId()}'/>">Save</a> </span>Property</li>
 												</ul>
 											</div>
 										</div>		

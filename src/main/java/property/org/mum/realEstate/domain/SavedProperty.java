@@ -21,6 +21,12 @@ public class SavedProperty {
 	@ManyToOne
 	private Client client;
 	
+	public SavedProperty(Date date, Property property, Client client) {
+		super();
+		this.date = date;
+		this.property = property;
+		this.client = client;
+	}
 	public Client getClient() {
 		return client;
 	}
