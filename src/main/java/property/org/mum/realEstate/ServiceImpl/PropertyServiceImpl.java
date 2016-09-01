@@ -13,6 +13,8 @@ import property.org.mum.realEstate.Service.PropertyService;
 import property.org.mum.realEstate.domain.Category;
 import property.org.mum.realEstate.domain.Property;
 import property.org.mum.realEstate.domain.SavedProperty;
+import property.org.mum.realEstate.domain.Search;
+
 
 @Service
 public class PropertyServiceImpl implements PropertyService {
@@ -47,7 +49,7 @@ public class PropertyServiceImpl implements PropertyService {
 
 	@Override
 	public void addPropertyToSaved(SavedProperty sProperty) {
-		//savedDAO.saveAndFlush(sProperty);
+		// savedDAO.saveAndFlush(sProperty);
 
 	}
 
@@ -65,6 +67,12 @@ public class PropertyServiceImpl implements PropertyService {
 	@Override
 	public List<Property> getFeaturedProperties() {
 		return propertyDAO.findByFeatured(true);
+	}
+
+	@Override
+	public List<Property> SearchProperties(Search search) {
+		// return propertyDAO.searchProperty(search);
+		return propertyDAO.findAll();
 	}
 
 }

@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 
 import property.org.mum.realEstate.domain.Address;
 import property.org.mum.realEstate.domain.Property;
+import client.org.mum.realEstate.domain.LeaseStatus;
 
 @Entity
 public class Lease {

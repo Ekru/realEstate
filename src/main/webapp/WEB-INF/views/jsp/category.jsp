@@ -5,7 +5,7 @@
 		<!---banner--->
 		<div class="banner-section">
 			<div class="container">
-				<h2>Search Results</h2>
+				<h2>${category.getName()}</h2>
 			</div>
 		</div>
 		<!---banner--->

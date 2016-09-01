@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+  <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 		<!---header--->
 			<div class="header-section">
 				<div class="container">
@@ -43,7 +44,7 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
 											<ul class="dropdown-menu">
 												<c:forEach items="${categories}" var="category">
-												<li><a href="<spring:url value='/category/${category.getId}' />">${category.getName}</a></li>
+												<li><a href="<spring:url value='/category/${category.getId()}' />">${category.getName()}</a></li>
 						 </c:forEach>
 												
 												
