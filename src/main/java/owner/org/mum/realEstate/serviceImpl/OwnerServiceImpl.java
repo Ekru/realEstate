@@ -8,11 +8,13 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import owner.org.mum.realEstate.DAO.OwnerDAO;
 import owner.org.mum.realEstate.domain.Owner;
 import owner.org.mum.realEstate.service.OwnerService;
+import property.org.mum.realEstate.Service.PropertyService;
+import property.org.mum.realEstate.domain.Category;
+import property.org.mum.realEstate.domain.Property;
 @Service
 public class OwnerServiceImpl implements OwnerService {
 	
@@ -21,23 +23,23 @@ public class OwnerServiceImpl implements OwnerService {
 	@Autowired
 	private OwnerDAO ownerDAO;
 	
-	@Transactional
+	
 	public void addNewOwner(Owner owner) {
 		
 		ownerDAO.save(owner);
 		
 	}
 
-	@Transactional
+	
 	public void deleteOwnerById(int ownerId) {
 		
 		ownerDAO.delete(ownerId);
 	}
 
-	@Transactional
+	
 	public void editOwnerById(int id) {
 		
-		//ownerDAO.editOwner(id);
+		//ownerDAO.e(id);
 	}
 
 	

@@ -71,11 +71,12 @@ public class OwnerController {
 		return "template";
 	}
 	@RequestMapping(value="/owners/{id}/delete")
-	public String deleteOwner(@PathVariable int id,Model model){
+	public String deleteOwner(@PathVariable int id,RedirectAttributes redirectAttributes){
 		
-		ownerService.deleteOwnerById(id);		
-		model.addAttribute("pageToRender", "ownerProfile.jsp");
-		return "redirect:/ownerprofile";
+		ownerService.deleteOwnerById(id);
+		redirectAttributes.addFlashAttribute("msg", "owner is deleted");
+		redirectAttributes.addFlashAttribute("pageToRender", "owners.jsp");
+		return "template";
 		
 	}
 	
@@ -89,7 +90,7 @@ public class OwnerController {
 		
 	}
 	@RequestMapping(value="/owners")
-	public String getOwners(Model model){
+	public String getOwnerById(Model model){
 		
 		List<Owner> owners=ownerService.getOwners();
 		model.addAttribute("owners", owners);
@@ -139,36 +140,43 @@ public class OwnerController {
 		model.addAttribute("pageToRender", "ownerProfile.jsp");
 		return "template";
 	}
-	@RequestMapping(value="/property/{id}/edit",method=RequestMethod.GET)
+	@RequestMapping(value="/properties/{id}/edit")
 	public String editProperty(@PathVariable int id,Model model) {
 		
-		
-		//model.addAttribute("msg", "Owner added successfully!");
-		Property property =propertyService.getPropertyById(id);		
-		model.addAttribute("property", property);
-		model.addAttribute("pageToRender", "editProperty.jsp");
+		//propertyService.editProperty(id);
+		model.addAttribute("msg", "Owner added successfully!");
+		model.addAttribute("pageToRender", "properties.jsp");
 		return "template";
 	}
-	@RequestMapping(value="/property/{id}/edit",method=RequestMethod.POST)
-	public String saveEditProperty(@ModelAttribute("property") Property property, BindingResult result, Model model) {
-		
-		if(result.hasErrors()){
-			return "editProperty";
-		}		
-		propertyService.addNewProperty(property);
-		model.addAttribute("pageToRender", "ownerProfile.jsp");
-		return "redirect:/ownerprofile";
-	}
-	@RequestMapping(value="/property/{id}/delete")
+	@RequestMapping(value="/properties/{id}/delete")
 	public String deleteProperty(@PathVariable int id,Model model){
 		
 		//propertyService.deleteProperty(id);
-		model.addAttribute("pageToRender", "ownerProfile.jsp");
+		model.addAttribute("msg", "Owner added successfully!");
+		model.addAttribute("pageToRender", "properties.jsp");
 		return "template";
 		
 	}
 	
-	
+	@RequestMapping(value="/properties/{category}")
+	public String getPropertiesByCategory(@PathVariable String category,Model model){
+		Category cat=new Category();
+		cat.setName(category);
+		List<Property> properties=propertyService.getProperitiesByCategory(cat);
+		model.addAttribute("properties", properties);
+		model.addAttribute("pageToRender", "properties.jsp");
+		return "template";
+		
+	}
+	@RequestMapping(value="/properties",method=RequestMethod.GET)
+	public String getAllproperties(Model model){
+		
+		List<Property> properties=propertyService.getAllProperies();
+		model.addAttribute("properties", properties);
+		model.addAttribute("pageToRender", "properties.jsp");
+		return "template";
+		
+	}
 	
 	//search for a client
 	@RequestMapping(value="/clients/{id}")
@@ -235,25 +243,22 @@ public class OwnerController {
 		
 	}
 	
-	@RequestMapping(value="/leases/{id}",method=RequestMethod.GET)
-	public String showLease(@PathVariable long id,Model model){
+	@RequestMapping(value="/leases/{id}/approve")
+	public String approveLease(@ModelAttribute("lease") Lease lease,BindingResult result,Model model){
 		
 		//clientService.editLease(lease);
 		//model.addAttribute("lease", lease);
-		Lease lease = leaseService.findById(id);
-		model.addAttribute("lease", lease);
-		model.addAttribute("pageToRender", "checkLease.jsp");
+		model.addAttribute("pageToRender", "leases.jsp");
 		return "template";
 		
 	}
-	@RequestMapping(value="/leases/{id}",method=RequestMethod.POST)
-	public String updateLease(@ModelAttribute("lease") Lease lease,BindingResult result,Model model){
-		if(result.hasErrors()){
-			return "checkLease";
-		}
-		leaseService.updateStatus(lease);		
-		model.addAttribute("pageToRender", "ownerProfile.jsp");
-		return "redirect:/ownerProfile";
+	@RequestMapping(value="/leases/{id}/reject")
+	public String rejectLease(@ModelAttribute("lease") Lease lease,BindingResult result,Model model){
+		
+		//clientService.deleteLease(lease);
+		//model.addAttribute("lease", lease);
+		model.addAttribute("pageToRender", "leases.jsp");
+		return "template";
 		
 	}
 	

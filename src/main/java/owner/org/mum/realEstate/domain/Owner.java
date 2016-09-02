@@ -15,7 +15,7 @@ import property.org.mum.realEstate.domain.Property;
 public class Owner {
 	@Id 
 	@GeneratedValue
-	private Integer id;	
+	private Integer id;
 	private String firstName;
 	private String lastName;	
 	private String telNumber;
@@ -35,9 +35,6 @@ public class Owner {
 		this.lastName=lastName;
 		this.email=email;
 		this.password=password;
-	}
-    public Integer getId() {
-		return id;
 	}
 	public String getFirstName() {
 		return firstName;
